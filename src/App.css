@@ -1,42 +1,39 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url("../reset.css");
+
+:root {
+  --dark-mode-dark-blue: hsl(209, 23%, 22%);
+  --dark-mode-very-dark-blue: hsl(207, 26%, 17%);
+  --light-mode-very-dark-blue: hsl(200, 15%, 8%);
+  --light-mode-dark-gray: hsl(0, 0%, 52%);
+  --light-mode-very-light-gray: hsl(0, 0%, 98%);
+  --white: hsl(0deg, 0%, 100%);
+  --bold-font-size: 24px;
+  --regular-font-size: 14px;
+  --spacing-50: 4px;
+  --spacing-100: 8px;
+  --spacing-150: 12px;
+  --spacing-200: 16px;
+  --spacing-300: 24px;
+  --spacing-500: 40px;
+  --font-weight-300: 300;
+  --font-weight-600: 600;
+  --font-weight-800: 800;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* fonts */
+
+@font-face {
+  font-family: Nunito Sans;
+  src: url('../assets/fonts/Nunito_Sans/NunitoSans-VariableFont_YTLC\,opsz\,wdth\,wght.ttf');
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.main {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: var(--font-weight-300);
+}
+
+@media (min-width: 0px) and (max-width: 500px) {
+  .main {
+      border: 1px solid dodgerblue;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

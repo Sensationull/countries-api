@@ -51,7 +51,7 @@
     letter-spacing: 0px;
 }
 
-.main {
+/* .main {
     border: 1px solid red;
     font-family: Inter;
     font-size: var(--regular-font-size);
@@ -61,7 +61,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .cardContainer {
     color: var(--white);
@@ -107,7 +107,7 @@
 }
 
 
-@media (min-width: 0px) and (max-width: 500px) {
+@media (min-width: 0px) and (max-width: 375px) {
     .main {
         border: 1px solid dodgerblue;
     }
