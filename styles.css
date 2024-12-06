@@ -1,0 +1,142 @@
+@import url("reset.css");
+
+:root {
+    --gray-950: hsl(0deg, 0%, 8%);
+    --gray-800: hsl(0deg, 0%, 12%);
+    --gray-700: hsl(0deg, 0%, 20%);
+    --green: hsl(75deg, 94%, 57%);
+    --white: hsl(0deg, 0%, 100%);
+    --bold-font-size: 24px;
+    --regular-font-size: 14px;
+    --spacing-50: 4px;
+    --spacing-100: 8px;
+    --spacing-150: 12px;
+    --spacing-200: 16px;
+    --spacing-300: 24px;
+    --spacing-500: 40px;
+}
+
+@font-face {
+    font-family: Inter;
+    src: url('assets/fonts/Inter-VariableFont_slnt,wght.ttf');
+}
+
+/* font classes for later? */
+
+.inter-l-bold {
+    font-size: var(--bold-font-size);
+    font-weight: bold;
+    line-height: 150%;
+    letter-spacing: 0px;
+}
+
+.inter-m-bold {
+    font-size: var(--regular-font-size);
+    font-weight: bold;
+    line-height: 150%;
+    letter-spacing: 0px;
+}
+
+.inter-m-regular {
+    font-size: var(--regular-font-size);
+    font-weight: normal;
+    line-height: 150%;
+    letter-spacing: 0px;
+}
+
+.inter-m-regular {
+    font-size: var(--regular-font-size);
+    font-weight: lighter;
+    line-height: 150%;
+    letter-spacing: 0px;
+}
+
+.main {
+    border: 1px solid red;
+    font-family: Inter;
+    font-size: var(--regular-font-size);
+    height: 100vh;
+    background-color: var(--gray-950);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardContainer {
+    color: var(--white);
+    background-color: var(--gray-800);
+    height: 611px;
+    max-width: 384px
+}
+
+.userInfo {
+    display:flex;
+    flex-direction: column;
+    gap: var(--spacing-300);
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--spacing-200);
+}
+
+.avatar {
+    border-radius: 50%;
+    height: 88px;
+    width: 88px;
+}
+
+.username {
+
+}
+
+.location {
+    text-align: center;
+}
+
+.chipContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chip {
+    background-color: var(--gray-700);
+    text-align: center;
+    padding: var(--spacing-150);
+}
+
+
+@media (min-width: 0px) and (max-width: 500px) {
+    .main {
+        border: 1px solid dodgerblue;
+    }
+
+    .cardContainer {
+        padding: var(--spacing-200);
+        max-height: 545px;
+        max-width: 327px;
+    }
+
+    .username {
+        font-size: var(--bold-font-size);
+        color: var(--white);
+    }
+
+    .location {
+        font-size: var(--regular-font-size);
+        color: var(--green);
+    }
+    
+    .chipContainer {
+        height: 279px;
+        width: 289px;
+        gap: var(--spacing-150);
+    }
+
+    .chip {
+        height: 45px;
+        width: 279px;
+        border-radius: var(--spacing-100);
+    }
+}
