@@ -11,23 +11,35 @@ The designs were created to the following widths:
 
 ## Colors
 
-- Green: hsl(75, 94%, 57%)
+### Neutral
 
-- White: hsl(0, 0%, 100%)
-
-- Grey 700: hsl(0, 0%, 20%)
-- Grey 800: hsl(0, 0%, 12%)
-- Grey 900: hsl(0, 0%, 8%)
+- Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
+- Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
+- Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
+- Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
+- Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
+- White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
 
 ## Typography
 
 ### Body Copy
 
-- Font size (paragraph): 14px
+- Homepage Items: 14px
+- Detail Page: 16px 
 
-### Font
+### Fonts
 
-- Family: [Inter](https://fonts.google.com/specimen/Inter)
-- Weights: 400, 600, 700
+- Family: [Nunito Sans](https://fonts.google.com/specimen/Nunito+Sans)
+- Weights: 300, 600, 800
 
-> 💎 [Upgrade to Pro](https://www.frontendmentor.io/pro?ref=style-guide) for design file access to see all design details and get hands-on experience using a professional workflow with tools like Figma. The design file for this challenge also includes a basic design system to help you build a more accurate solution faster.
+## Icons
+
+For the icons, you can use a font icon library. Don't worry if the icons that you choose don't look exactly like they do on the design.
+
+Some suggestions can be found below:
+
+- [Font Awesome](https://fontawesome.com)
+- [IcoMoon](https://icomoon.io)
+- [Ionicons](https://ionicons.com)
+
+> 💎 [Upgrade to Pro](https://www.frontendmentor.io/pro?ref=style-guide) for design file access to see all design details and get hands-on experience using a professional workflow with tools like Figma.
