@@ -1,0 +1,5 @@
+.country-container{
+    border: 1px solid dodgerblue;
+    height: 100%;
+    background-color: var(--light-mode-very-light-gray);
+}
