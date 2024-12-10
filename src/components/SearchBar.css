@@ -1,0 +1,19 @@
+.search-bar-container {
+    border: 1px solid palegreen;   
+}
+
+.search-bar {
+    height: 56px;
+    width: 480px;
+    border: 1px dotted black;
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+    gap: 1.5rem;
+    color: #FFFFFF;
+    font-size:var(--regular-font-size)
+}
+
+.search-bar input {
+    border: none;
+}
