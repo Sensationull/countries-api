@@ -7,6 +7,7 @@
     padding: 0 5rem;
     font-weight: var(--font-weight-800);
     font-size: var(--spacing-300);
+    background-color: var(--white);
 }
 
 .dark-mode-container {

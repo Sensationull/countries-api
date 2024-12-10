@@ -4,14 +4,15 @@
 
 .search-bar {
     height: 56px;
-    width: 480px;
-    border: 1px dotted black;
+    max-width: 480px;
+    min-width: 343px;
     display: flex;
     align-items: center;
     padding: 0 1.5rem;
     gap: 1.5rem;
     color: #FFFFFF;
-    font-size:var(--regular-font-size)
+    font-size:var(--regular-font-size);
+    background-color: var(--white);
 }
 
 .search-bar input {
