@@ -7,7 +7,16 @@ function CountryContainer() {
     return (
         <main className="country-container">
             <SearchBar/>
-            <CountryCard/>
+            <div className='country-card-container'>
+                <CountryCard/>
+                <CountryCard/>
+                <CountryCard/>
+                <CountryCard/>
+                <CountryCard/>
+                <CountryCard/>
+                <CountryCard/>
+                <CountryCard/>
+            </div>
         </main>
     )
 }

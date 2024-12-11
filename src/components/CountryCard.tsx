@@ -3,7 +3,6 @@ import './CountryCard.css';
 
 function CountryCard() {
     return (
-        <div className="country-card-container">
             <div className='country-card'>
                 <div className="country-flag">Flag img go brr</div>
                 <div className="country-info">
@@ -13,7 +12,6 @@ function CountryCard() {
                     <div className='country-capital'>Capital: <span className="card-data">Brasilia</span></div>
                 </div>
             </div>
-        </div>
     )
 }
 

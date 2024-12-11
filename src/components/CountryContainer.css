@@ -7,6 +7,17 @@
     flex-direction: column;
 }
 
+.country-card-container {
+    /* border: 1px solid palegreen; */
+    height: 100%;
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex: 0 0;
+    flex-wrap: wrap;
+    gap: 75px;
+}
+
 @media (min-width: 0px) and (max-width: 500px) {
     .country-container {
         border: 1px solid dodgerblue;
