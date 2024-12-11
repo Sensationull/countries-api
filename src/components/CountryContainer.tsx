@@ -1,10 +1,14 @@
+import CountryCard from './CountryCard'
 import './CountryContainer.css'
 import SearchBar from './SearchBar'
 
 
 function CountryContainer() {
     return (
-        <div className="country-container"><SearchBar/></div>
+        <main className="country-container">
+            <SearchBar/>
+            <CountryCard/>
+        </main>
     )
 }
 
