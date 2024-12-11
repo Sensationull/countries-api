@@ -1,3 +1,4 @@
+import Filter from './Filter'
 import Search from './Search'
 import './SearchBar.css'
 
@@ -8,6 +9,7 @@ function SearchBar() {
                 <Search/>
                 <input placeholder="Search for a country..."/>
             </div>
+            <Filter/>
         </div>
     )
 }
