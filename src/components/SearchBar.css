@@ -15,6 +15,7 @@
     color: #FFFFFF;
     font-size:var(--regular-font-size);
     background-color: var(--white);
+    box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 5%);
 }
 
 .search-bar input {
