@@ -1,15 +1,25 @@
 
 import './CountryCard.css';
 
-function CountryCard() {
+type CountryCardProps = {
+    flags: { alt:string; png: string; svg: string}
+    name: string;
+    population: string;
+    region: string;
+    capital: string;
+}
+
+function CountryCard({flags, name, population, region, capital}: CountryCardProps) {
     return (
             <div className='country-card'>
-                <div className="country-flag">Flag img go brr</div>
+                <div className="country-flag">
+                    <img src={flags.png} alt={flags.alt}/>
+                </div>
                 <div className="country-info">
-                    <div className='country-name'>Brazil</div>
-                    <div className='country-population'>Population: <span className="card-data">206,135,893</span></div>
-                    <div className='country-region'>Region: <span className="card-data">Americas</span></div>
-                    <div className='country-capital'>Capital: <span className="card-data">Brasilia</span></div>
+                    <div className='country-name'>{name}</div>
+                    <div className='country-population'>Population: <span className="card-data">{population}</span></div>
+                    <div className='country-region'>Region: <span className="card-data">{region}</span></div>
+                    <div className='country-capital'>Capital: <span className="card-data">{capital}</span></div>
                 </div>
             </div>
     )
