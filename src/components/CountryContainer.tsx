@@ -9,6 +9,14 @@ function CountryContainer() {
     1. Fetch the proper data https://restcountries.com/v3.1/all
     2. Store the data locally
     3. Take the stored data and render it here
+
+    next 
+    4. set up Prettier/ES lint to format on save
+    5. figure out what to do for overflow
+    6. set up filter button position on small screens
+    7. Search functionality
+    8. Filter functionality
+    9. Filter button styling
     */
    const [countries, setCountries] = useState<CountryInfo[] | []>([]);
     useEffect(() => {

@@ -12,9 +12,7 @@ type CountryCardProps = {
 function CountryCard({flags, name, population, region, capital}: CountryCardProps) {
     return (
             <div className='country-card'>
-                <div className="country-flag">
-                    <img src={flags.png} alt={flags.alt}/>
-                </div>
+                <img className="country-flag"src={flags.png} alt={flags.alt}/>
                 <div className="country-info">
                     <div className='country-name'>{name}</div>
                     <div className='country-population'>Population: <span className="card-data">{population}</span></div>
