@@ -14,11 +14,11 @@ function Filter({ setSelectedRegion }: FilterProps) {
   const regions = [
     'Africa',
     'Americas',
-    'Antarctic Ocean',
     'Asia',
     'Europe',
     'Oceania',
-    'Polar',
+    // 'Polar', These may only exist in the data.json file
+    // 'Antarctic Ocean',
   ]
 
   return (
