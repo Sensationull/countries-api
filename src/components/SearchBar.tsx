@@ -6,9 +6,10 @@ import './SearchBar.css'
 type SearchBar = {
   value: string
   handleSearch(event: ChangeEvent<HTMLInputElement>): void
+  setSelectedRegion: React.Dispatch<React.SetStateAction<string>>
 }
 
-function SearchBar({ value, handleSearch }: SearchBar) {
+function SearchBar({ value, handleSearch, setSelectedRegion }: SearchBar) {
   return (
     <div className="search-bar-container">
       <div className="search-bar">
@@ -19,7 +20,7 @@ function SearchBar({ value, handleSearch }: SearchBar) {
           onChange={handleSearch}
         />
       </div>
-      <Filter />
+      <Filter setSelectedRegion={setSelectedRegion} />
     </div>
   )
 }

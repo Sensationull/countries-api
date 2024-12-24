@@ -35,20 +35,49 @@ function CountryContainer() {
         b. fetch according countries Done
         c. handle error states ~ current
             1. error states now configured, display error done
-        d. debouncing 
+        d. debouncing *Challenge*
     8. Filter functionality
-    
+        a. Gather filter regions and map them out into 
+            the options for the filter component
+        b. hit https://restcountries.com/v3.1/region/{region} with that
+            selected region
+        c. update the countries displayed when the data returns
+        d. *Challenge! Pulling the regions from the API and memoizing that info?*
+        e. Is there a way to not pass the setSelectedRegion through SearchBar?
+
+
     6. set up filter button position on small screens
     5. figure out what to do for overflow
     9. Filter button styling
     */
+
+  // ~ State management ~
   const [value, setValue] = useState('')
   const [countryData, setCountryData] = useState<CountryData>({
     data: [],
     isLoading: false,
     error: null,
   })
+  const [selectedRegion, setSelectedRegion] = useState('')
 
+  // ~ Lifecycle methods ~
+  useEffect(() => {
+    fetchInitialCountries()
+  }, [])
+
+  useEffect(() => {
+    if (value) {
+      fetchSpecificCountries()
+    }
+  }, [value])
+
+  useEffect(() => {
+    if (selectedRegion) {
+      fetchCountriesByRegion()
+    }
+  }, [selectedRegion])
+
+  // ~ fetch functions ~
   const fetchInitialCountries = async () => {
     setCountryData({ data: [], isLoading: true, error: null })
     await fetch(
@@ -91,23 +120,41 @@ function CountryContainer() {
     setCountryData({ data: [...data], isLoading: false, error: null })
   }
 
-  useEffect(() => {
-    fetchInitialCountries()
-  }, [])
-
-  useEffect(() => {
-    if (value) {
-      fetchSpecificCountries()
+  const fetchCountriesByRegion = async () => {
+    setCountryData({
+      data: [...countryData.data],
+      isLoading: true,
+      error: null,
+    })
+    const response = await fetch(
+      `https://restcountries.com/v3.1/region/${selectedRegion}`
+    )
+    if (!response.ok) {
+      const error = await response.text()
+      const parsedError = JSON.parse(error)
+      setCountryData({
+        data: [...countryData.data],
+        isLoading: false,
+        error: { status: parsedError.status, message: parsedError.message },
+      })
+      throw new Error(error)
     }
-  }, [value])
+    const data = await response.json()
+    setCountryData({ data: [...data], isLoading: false, error: null })
+  }
 
+  // ~ event handlers ~
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value)
   }
 
   return (
     <main className="country-container">
-      <SearchBar value={value} handleSearch={handleSearch} />
+      <SearchBar
+        value={value}
+        handleSearch={handleSearch}
+        setSelectedRegion={setSelectedRegion}
+      />
       <div className="country-card-container">
         {countryData.isLoading && <div>Loading...</div>}
         {countryData.error && (
