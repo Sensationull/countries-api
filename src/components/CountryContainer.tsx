@@ -30,19 +30,14 @@ type CountryData = {
 
 function CountryContainer() {
   /*
-    1. Fetch the proper data https://restcountries.com/v3.1/all
-    2. Store the data locally
-    3. Take the stored data and render it here
-
-    next 
-    4. set up Prettier/ES lint to format on save Done
     7. Search functionality
         a. Create controlled react input field Done
         b. fetch according countries Done
         c. handle error states ~ current
-            1. error states now configured, display error later
-        d. debouncing
+            1. error states now configured, display error done
+        d. debouncing 
     8. Filter functionality
+    
     6. set up filter button position on small screens
     5. figure out what to do for overflow
     9. Filter button styling
@@ -114,7 +109,16 @@ function CountryContainer() {
     <main className="country-container">
       <SearchBar value={value} handleSearch={handleSearch} />
       <div className="country-card-container">
+        {countryData.isLoading && <div>Loading...</div>}
+        {countryData.error && (
+          <>
+            <div>{countryData.error.status}</div>
+            <div>{countryData.error.message}</div>
+          </>
+        )}
         {countryData.data &&
+          !countryData.isLoading &&
+          !countryData.error &&
           countryData.data.map((country) => {
             const { flags, name, population, region, capital } = country
             return (
