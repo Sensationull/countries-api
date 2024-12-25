@@ -38,17 +38,20 @@ function CountryContainer() {
         d. debouncing *Challenge*
     8. Filter functionality
         a. Gather filter regions and map them out into 
-            the options for the filter component
+            the options for the filter component Done
         b. hit https://restcountries.com/v3.1/region/{region} with that
-            selected region
-        c. update the countries displayed when the data returns
+            selected region Done
+        c. update the countries displayed when the data returns Done
         d. *Challenge! Pulling the regions from the API and memoizing that info?*
         e. Is there a way to not pass the setSelectedRegion through SearchBar?
+        f. Is there a way to DRY up fetch calls and function defs? 
 
 
-    6. set up filter button position on small screens
-    5. figure out what to do for overflow
+    6. set up filter button position on small screens Done
+    5. figure out what to do for overflow Done
     9. Filter button styling
+    10. Dark Mode
+    11. Single Country View
     */
 
   // ~ State management ~

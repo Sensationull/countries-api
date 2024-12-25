@@ -2,6 +2,9 @@
     /* border: 1px solid palegreen;  */
     display: flex;
     justify-content: space-between;  
+    flex-wrap: wrap;
+    row-gap: 3rem;
+    
 }
 
 .search-bar {
@@ -21,4 +24,12 @@
     border: none;
     height: 56px;
     width: 250px;
+}
+
+@media (min-width: 0px) and (max-width: 750px) {
+    .search-bar-container {
+        /* border: 1px solid palegreen; */
+        justify-content: center;
+        max-width: 343px;
+    }
 }

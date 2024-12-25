@@ -8,6 +8,7 @@
   --light-mode-very-light-gray: hsl(0, 0%, 98%);
   --white: hsl(0deg, 0%, 100%);
   --bold-font-size: 24px;
+  --country-name-font-size: 18px;
   --regular-font-size: 14px;
   --spacing-50: 4px;
   --spacing-100: 8px;
@@ -18,6 +19,7 @@
   --font-weight-300: 300;
   --font-weight-600: 600;
   --font-weight-800: 800;
+  --tablet: 750px;
 }
 
 /* fonts */
@@ -36,8 +38,9 @@
   flex-direction: column;
 }
 
-@media (min-width: 0px) and (max-width: 500px) {
+@media (min-width: 0px) and (max-width: 750px) {
   .main {
       border: 1px solid dodgerblue;
+      align-items: center;
   }
 }
