@@ -50,8 +50,13 @@ function CountryContainer() {
     6. set up filter button position on small screens Done
     5. figure out what to do for overflow Done
     9. Filter button styling
+        a. add downward caret 
     10. Dark Mode
     11. Single Country View
+        a. are routes necessary?
+        b. hit a different endpoint to get all the flag data
+        c. how will hitting the back button work? or hitting the header?
+    12. ~Challenge~ Pagination on main page?
     */
 
   // ~ State management ~
