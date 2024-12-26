@@ -51,7 +51,7 @@ function CountryContainer() {
     5. figure out what to do for overflow Done
     9. Filter button styling
         a. add downward caret 
-    10. Dark Mode
+    10. Dark Mode Done
     11. Single Country View
         a. are routes necessary?
         b. hit a different endpoint to get all the flag data

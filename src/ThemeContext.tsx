@@ -1,11 +1,6 @@
 import { createContext, useEffect, useState } from 'react'
 
-export const ThemeContext = createContext({
-  darkMode: false,
-  toggleDarkMode: () => {
-    console.log('hello') // is this necessary?
-  },
-})
+export const ThemeContext = createContext({})
 
 type ThemeProviderProps = {
   children: JSX.Element | JSX.Element[]
