@@ -7,7 +7,11 @@ export const ThemeContext = createContext({
   },
 })
 
-export const ThemeProvider = ({ children }) => {
+type ThemeProviderProps = {
+  children: JSX.Element | JSX.Element[]
+}
+
+export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [darkMode, setDarkMode] = useState(false)
 
   useEffect(() => {
