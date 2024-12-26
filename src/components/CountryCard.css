@@ -23,6 +23,8 @@
     background-color: var(--white);
     height:172px;
     padding: 1.25rem; 
+    background-color: var(--primary-bg-color);
+    color: var(--text-color);
 }
 
 .country-name {

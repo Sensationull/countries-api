@@ -1,17 +1,19 @@
-import './Header.css';
-import { Moon } from './Moon';
+import { useContext } from 'react'
+import './Header.css'
+import { Moon } from './Moon'
+import { ThemeContext } from '../ThemeContext'
 
-
-function Header () {
-    return (
-        <div className="header">
-            Where in the world?
-            <button className="dark-mode-container">
-                <Moon/>
-                Dark Mode
-            </button>
-        </div>
-    )
+function Header() {
+  const { darkMode, toggleDarkMode } = useContext(ThemeContext)
+  return (
+    <div className="header">
+      Where in the world?
+      <button className="dark-mode-container" onClick={toggleDarkMode}>
+        <Moon />
+        {darkMode ? 'Light Mode ' : 'Dark Mode'}
+      </button>
+    </div>
+  )
 }
 
-export default Header;
+export default Header
