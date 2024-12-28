@@ -54,6 +54,14 @@ function CountryContainer() {
     10. Dark Mode Done
     11. Single Country View
         a. are routes necessary?
+          1. When you click a country card, 
+             we take the country name and the remove the CountryContainer component
+             with that country name, we fetch all the data about that relative country and display it
+             when you navigate back, we mount this component, brand new. 
+
+             How would we deal with keeping track of selected options when hitting the back button?
+              several different forms of state management are available as options
+
         b. hit a different endpoint to get all the flag data
         c. how will hitting the back button work? or hitting the header?
     12. ~Challenge~ Pagination on main page?
