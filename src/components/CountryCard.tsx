@@ -6,6 +6,7 @@ type CountryCardProps = {
   population: string
   region: string
   capital: string
+  showSpecificCountry(): void
 }
 
 function CountryCard({
@@ -14,9 +15,10 @@ function CountryCard({
   population,
   region,
   capital,
+  showSpecificCountry,
 }: CountryCardProps) {
   return (
-    <div className="country-card">
+    <div className="country-card" onClick={showSpecificCountry}>
       <img className="country-flag" src={flags.png} alt={flags.alt} />
       <div className="country-info">
         <div className="country-name">{name}</div>

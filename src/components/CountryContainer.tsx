@@ -28,7 +28,11 @@ type CountryData = {
   error: { status: number; message: string } | null
 }
 
-function CountryContainer() {
+type CountryContainerProps = {
+  setShowCountryPage: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+function CountryContainer({ setShowCountryPage }: CountryContainerProps) {
   /*
     7. Search functionality
         a. Create controlled react input field Done
@@ -51,6 +55,7 @@ function CountryContainer() {
     5. figure out what to do for overflow Done
     9. Filter button styling
         a. add downward caret 
+        b. style the options
     10. Dark Mode Done
     11. Single Country View
         a. are routes necessary?
@@ -164,6 +169,13 @@ function CountryContainer() {
     setValue(event.target.value)
   }
 
+  const showSpecificCountry = () => {
+    setShowCountryPage((showCountryPage: boolean) => {
+      // can this be useContext or custom hook?
+      return !showCountryPage
+    })
+  }
+
   return (
     <main className="country-container">
       <SearchBar
@@ -192,6 +204,7 @@ function CountryContainer() {
                 region={region}
                 capital={capital}
                 key={name.common}
+                showSpecificCountry={showSpecificCountry}
               />
             )
           })}
