@@ -29,10 +29,10 @@ type CountryData = {
 }
 
 type CountryContainerProps = {
-  setShowCountryPage: React.Dispatch<React.SetStateAction<boolean>>
+  showSpecificCountry(country: string): void
 }
 
-function CountryContainer({ setShowCountryPage }: CountryContainerProps) {
+function CountryContainer({ showSpecificCountry }: CountryContainerProps) {
   /*
     7. Search functionality
         a. Create controlled react input field Done
@@ -70,6 +70,8 @@ function CountryContainer({ setShowCountryPage }: CountryContainerProps) {
         b. hit a different endpoint to get all the flag data
         c. how will hitting the back button work? or hitting the header?
     12. ~Challenge~ Pagination on main page?
+    13. Divs having onClicks is not most accessible.
+
     */
 
   // ~ State management ~
@@ -167,13 +169,6 @@ function CountryContainer({ setShowCountryPage }: CountryContainerProps) {
   // ~ event handlers ~
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value)
-  }
-
-  const showSpecificCountry = () => {
-    setShowCountryPage((showCountryPage: boolean) => {
-      // can this be useContext or custom hook?
-      return !showCountryPage
-    })
   }
 
   return (
