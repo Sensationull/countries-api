@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './CountryPage.css'
+import { BackArrow } from './BackArrow'
 
 type CountryPageInfo = {
   flags: {
@@ -10,8 +11,7 @@ type CountryPageInfo = {
   name: {
     common: string
     nativeName: {
-      eng: string
-      common: string
+      [key: string]: { official: string; common: string }
     }
     official: string
   }
@@ -21,7 +21,7 @@ type CountryPageInfo = {
   subregion: string
   tld: string[]
   languages: { [key: string]: string }
-  currencies: { name: string; symbol: string }
+  currencies: { [key: string]: { name: string; symbol: string } }
   borders: string[]
 }
 
@@ -77,7 +77,7 @@ function CountryPage({ showAllCountries, showCountryPage }: CountryPageProps) {
     )
   }
 
-  if (singleCountryInfo.isLoading) {
+  if (singleCountryInfo.isLoading || !singleCountryInfo.data.length) {
     return (
       <div className="country-page-container">
         <div>Loading...</div>
@@ -86,9 +86,97 @@ function CountryPage({ showAllCountries, showCountryPage }: CountryPageProps) {
   }
 
   return (
-    <div className="country-page-container" onClick={showAllCountries}>
-      {showCountryPage.country}
-    </div>
+    <main className="country-page-container">
+      <button className="back-button" onClick={showAllCountries}>
+        <BackArrow />
+        Back
+      </button>
+      <section className="country-page-info">
+        <img
+          className="country-flag-xl"
+          src={singleCountryInfo.data[0].flags.svg}
+          alt={singleCountryInfo.data[0].flags.alt}
+        />
+        <aside className="country-text-container">
+          <div className="country-name-header">
+            {singleCountryInfo.data[0].name.official}
+          </div>
+          <div className="country-description-container">
+            <div className="country-basic-info">
+              <div className="country-name-native">
+                Native Name:{' '}
+                <span className="country-data">
+                  {
+                    Object.values(singleCountryInfo.data[0].name.nativeName)[0]
+                      .official
+                    // Gotta figure out something better than this
+                  }
+                </span>
+              </div>
+              <div className="country-population">
+                Population:{' '}
+                <span className="country-data">
+                  {singleCountryInfo.data[0].population}
+                </span>
+              </div>
+              <div className="country-region">
+                Region:{' '}
+                <span className="country-data">
+                  {singleCountryInfo.data[0].region}
+                </span>
+              </div>
+              <div className="country-subregion">
+                Sub Region:{' '}
+                <span className="country-data">
+                  {singleCountryInfo.data[0].subregion}
+                </span>
+              </div>
+            </div>
+            <div className="country-advanced-info">
+              <div className="country-tld">
+                Top Level Domain:{' '}
+                <span className="country-data">
+                  {singleCountryInfo.data[0].tld}
+                </span>
+              </div>
+              <div className="country-currencies">
+                Currencies:{' '}
+                <span className="country-data">
+                  {Object.values(singleCountryInfo.data[0].currencies)[0].name}
+                </span>
+              </div>
+              <div className="country-languages">
+                Languages:{' '}
+                <span className="country-data">
+                  {Object.values(singleCountryInfo.data[0].languages).map(
+                    (language) => (
+                      <> {language} </>
+                    )
+                  )}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {singleCountryInfo.data[0].borders.length > 0 && (
+            <div className="country-border-container">
+              <span className="country-borders">
+                Border Countries:{' '}
+                <span className="country-border-buttons">
+                  {Object.values(singleCountryInfo.data[0].borders).map(
+                    (border) => (
+                      <button key={border} className="border-country-button">
+                        {border}
+                      </button>
+                    )
+                  )}
+                </span>
+              </span>
+            </div>
+          )}
+        </aside>
+      </section>
+    </main>
   )
 }
 

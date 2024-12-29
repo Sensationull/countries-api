@@ -1,5 +1,5 @@
 .country-page-container{
-    border:1px solid red;
+    /* border:1px solid red; */
     height: 100%;
     min-height: 100vh;
     padding: 3.5rem 5rem;
@@ -7,4 +7,100 @@
     display: flex;
     flex-direction: column;
     color: var(--text-color);
+    row-gap: 3rem;
+}
+
+.country-page-info {
+    /* border:1px solid palegreen; */
+    min-height:200px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 3rem;
+}
+
+.country-flag-xl {
+    max-height: 401px;
+    max-width: 560px;
+}
+
+.country-text-container {
+    /* border: 1px solid dodgerblue; */
+    height: 323px;
+    width: 598px;
+    display:flex;
+    flex-direction: column;
+    padding: 2rem;
+    row-gap: .5rem;
+}
+
+.country-name-header {
+    font-size:var(--bold-font-size);
+    font-weight: var(--font-weight-800);
+}
+
+.country-description-container {
+    /* border: 1px solid; */
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 2rem 0rem 0rem;
+    column-gap: 1rem;
+}
+
+.country-name-native,
+.country-population,
+.country-region,
+.country-subregion,
+.country-tld,
+.country-currencies,
+.country-languages,
+.country-borders {
+    font-weight: var(--font-weight-600);
+    margin-bottom: .5rem;
+}
+
+.country-data {
+    font-weight: var(--font-weight-300);
+}
+
+.country-basic-info, .country-advanced-info {
+    /* border: 1px dotted red; */
+    max-width: 12rem;
+}
+
+.country-border-container {
+    /* border: 1px dotted palegreen; */
+}
+
+.country-borders {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: .5rem;
+}
+
+.border-country-button {
+    width: 96px;
+    height: 28px;
+    font-size: var(--regular-font-size);
+    font-weight: var(--font-weight-300);
+    padding: 0rem;
+    border: none;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 10%);
+    margin-right: .75rem;
+    margin-bottom: .75rem
+    color: var(--text-color);
+    background-color: var(--primary-bg-color);
+}
+
+.back-button {
+    color: var(--text-color);
+    background-color: var(--primary-bg-color);
+    width: 136px;
+    height: 40px;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: .5rem;
+    border-radius: .2rem;
 }
