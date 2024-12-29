@@ -125,12 +125,14 @@ function CountryPage({ showAllCountries, showCountryPage }: CountryPageProps) {
                   {singleCountryInfo.data[0].region}
                 </span>
               </div>
-              <div className="country-subregion">
-                Sub Region:{' '}
-                <span className="country-data">
-                  {singleCountryInfo.data[0].subregion}
-                </span>
-              </div>
+              {singleCountryInfo.data[0].subregion && (
+                <div className="country-subregion">
+                  Sub Region:{' '}
+                  <span className="country-data">
+                    {singleCountryInfo.data[0].subregion}
+                  </span>
+                </div>
+              )}
             </div>
             <div className="country-advanced-info">
               <div className="country-tld">

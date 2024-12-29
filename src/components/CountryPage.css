@@ -87,7 +87,7 @@
     border: none;
     box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 10%);
     margin-right: .75rem;
-    margin-bottom: .75rem
+    margin-bottom: .75rem;
     color: var(--text-color);
     background-color: var(--primary-bg-color);
 }
