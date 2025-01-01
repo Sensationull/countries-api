@@ -37,6 +37,7 @@
 
 .country-population, .country-region, .country-capital {
     font-weight: var(--font-weight-600);
+    font-size: var(--regular-font-size)
 }
 
 .card-data {
