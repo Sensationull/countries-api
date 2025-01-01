@@ -57,7 +57,6 @@ function CountryPage({ showAllCountries, showCountryPage }: CountryPageProps) {
       throw new Error(error)
     }
     const countryData = await response.json()
-    console.log({ countryData })
     setSingleCountryInfo({
       data: [...countryData],
       isLoading: false,

@@ -29,14 +29,16 @@
     width: 250px;
 }
 
+.search-bar input::placeholder {
+    color: var(--text-color);
+}
+
 .search-bar svg {
     fill: var(--text-color);
-    /* targeting fill issue */
 }
 
 @media (min-width: 0px) and (max-width: 750px) {
     .search-bar-container {
-        /* border: 1px solid palegreen; */
         justify-content: center;
         max-width: 343px;
     }

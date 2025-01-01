@@ -98,6 +98,10 @@
     border-radius: .2rem;
 }
 
+.back-button svg {
+    fill: var(--text-color);
+}
+
 @media (min-width: 0px) and (max-width: 750px) {
     .country-page-container {
         width: 100vw;
