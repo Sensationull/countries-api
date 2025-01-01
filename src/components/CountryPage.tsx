@@ -133,6 +133,14 @@ function CountryPage({ showAllCountries, showCountryPage }: CountryPageProps) {
                   </span>
                 </div>
               )}
+              {singleCountryInfo.data[0].capital && (
+                <div className="country-capital">
+                  Capital:{' '}
+                  <span className="country-data">
+                    {singleCountryInfo.data[0].capital}
+                  </span>
+                </div>
+              )}
             </div>
             <div className="country-advanced-info">
               <div className="country-tld">
@@ -152,7 +160,7 @@ function CountryPage({ showAllCountries, showCountryPage }: CountryPageProps) {
                 <span className="country-data">
                   {Object.values(singleCountryInfo.data[0].languages).map(
                     (language) => (
-                      <> {language} </>
+                      <span key={language}> {language} </span>
                     )
                   )}
                 </span>

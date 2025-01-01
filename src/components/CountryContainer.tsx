@@ -116,7 +116,7 @@ function CountryContainer({ showSpecificCountry }: CountryContainerProps) {
           isLoading: false,
           error: { status: error.status, message: error.message },
         })
-        console.log(error)
+        console.error(error)
       })
   }
 
