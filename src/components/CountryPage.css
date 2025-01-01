@@ -96,6 +96,7 @@
     align-items: center;
     column-gap: .5rem;
     border-radius: .2rem;
+    cursor: pointer;
 }
 
 .back-button svg {
