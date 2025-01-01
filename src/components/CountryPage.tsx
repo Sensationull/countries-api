@@ -115,7 +115,9 @@ function CountryPage({ showAllCountries, showCountryPage }: CountryPageProps) {
               <div className="country-population">
                 Population:{' '}
                 <span className="country-data">
-                  {singleCountryInfo.data[0].population}
+                  {Number(
+                    singleCountryInfo.data[0].population
+                  ).toLocaleString()}
                 </span>
               </div>
               <div className="country-region">

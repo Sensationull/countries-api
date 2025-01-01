@@ -23,7 +23,10 @@ function CountryCard({
       <div className="country-info">
         <div className="country-name">{name}</div>
         <div className="country-population">
-          Population: <span className="card-data">{population}</span>
+          Population:{' '}
+          <span className="card-data">
+            {Number(population).toLocaleString()}
+          </span>
         </div>
         <div className="country-region">
           Region: <span className="card-data">{region}</span>

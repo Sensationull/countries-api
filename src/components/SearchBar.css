@@ -1,5 +1,4 @@
 .search-bar-container {
-    /* border: 1px solid palegreen;  */
     display: flex;
     justify-content: space-between;  
     flex-wrap: wrap;

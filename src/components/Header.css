@@ -24,7 +24,6 @@
 
 @media (min-width: 0px) and (max-width: 750px) {
     .header {
-        border: 1px solid dodgerblue;
         font-size: var(--regular-font-size);
         padding: 0 1rem;
     }
