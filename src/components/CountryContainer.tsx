@@ -35,43 +35,15 @@ type CountryContainerProps = {
 function CountryContainer({ showSpecificCountry }: CountryContainerProps) {
   /*
     7. Search functionality
-        a. Create controlled react input field Done
-        b. fetch according countries Done
-        c. handle error states ~ current
-            1. error states now configured, display error done
         d. debouncing *Challenge*
     8. Filter functionality
-        a. Gather filter regions and map them out into 
-            the options for the filter component Done
-        b. hit https://restcountries.com/v3.1/region/{region} with that
-            selected region Done
-        c. update the countries displayed when the data returns Done
         d. *Challenge! Pulling the regions from the API and memoizing that info?*
         e. Is there a way to not pass the setSelectedRegion through SearchBar?
         f. Is there a way to DRY up fetch calls and function defs? 
-
-
-    6. set up filter button position on small screens Done
-    5. figure out what to do for overflow Done
     9. Filter button styling
-        a. add downward caret 
-        b. style the options
-    10. Dark Mode Done
-    11. Single Country View
-        a. are routes necessary?
-          1. When you click a country card, 
-             we take the country name and the remove the CountryContainer component
-             with that country name, we fetch all the data about that relative country and display it
-             when you navigate back, we mount this component, brand new. 
-
-             How would we deal with keeping track of selected options when hitting the back button?
-              several different forms of state management are available as options
-
-        b. hit a different endpoint to get all the flag data
-        c. how will hitting the back button work? or hitting the header?
+        b. style the options nope, see:
+        https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#:~:text=The%20%3Cselect%3E%20element%20is,WAI%2DARIA%20to%20provide%20semantics.
     12. ~Challenge~ Pagination on main page?
-    13. Divs having onClicks is not most accessible.
-
     */
 
   // ~ State management ~

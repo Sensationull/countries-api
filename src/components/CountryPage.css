@@ -52,7 +52,7 @@
 .country-languages,
 .country-borders {
     font-weight: var(--font-weight-600);
-    margin-bottom: .5rem;
+    margin-bottom: .25rem;
 }
 
 .country-data {
