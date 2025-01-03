@@ -166,7 +166,7 @@ function CountryContainer({ showSpecificCountry }: CountryContainerProps) {
             return (
               <CountryCard
                 flags={flags}
-                name={name.official}
+                name={name.common}
                 population={population}
                 region={region}
                 capital={capital}
