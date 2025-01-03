@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Screenshot
 
-![/Users/sensationull/projects/countries-api/assets/images/Light Mode.png](./screenshot.jpg)
+![Light mode](/assets/images/Light%20Mode.png)
 
 ### Links
 
