@@ -34,11 +34,12 @@ Users should be able to:
 ### Screenshot
 
 ![Light mode](/assets/images/Light%20Mode.png)
+![Dark mode](/assets/images/Dark%20Mode.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [TBD](https://your-solution-url.com)
+- Live Site URL: [TBD](https://your-live-site-url.com)
 
 ## My process
 
@@ -61,18 +62,15 @@ Lastly, I went back DRYed up some function defs, moved some code around to avoid
 - [React](https://reactjs.org/) - JS library
 - Typescript
 
-### What I learned
+###  What I learned
 
 1. [Styling a select option](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#:~:text=The%20%3Cselect%3E%20element%20is,WAI%2DARIA%20to%20provide%20semantics.) is actually pretty difficult, and I didn't know that until the end of this project, because I stepped away from styling to finish the core functionality. I ended up deciding to not style the dropdown menu from the <select> Filter due to time constraints. I may change it to be a <ul> element later, but not at this moment. I'm trying to not let perfect be the enemy of good.
 
 2. How to setup Prettier & Eslint for a project
 
-3. A way to avoid prop drilling, which I ended up encountering with the Filter component. Rather than use useContext, I lifted up the child component to the CountryContainer component. I think if I'd gone the useContext route, I'd have tied that component to a specific context and it ultimately would've hindered component composition/reusability and that's not a habit I want to get into. 
+3. A way to avoid prop drilling, which I ended up encountering with the Filter component. Rather than use useContext, I lifted up the child component to the CountryContainer component. I think if I'd gone the useContext route, I'd have tied that component to a specific context and it ultimately would've hindered component composition/reusability and that's not a habit I want to get into.
 
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+###  Continued development
 
 1. I didn't use routing to display the pages. That's something that could be useful here, but I haven't gotten around to it yet.
 
@@ -83,35 +81,53 @@ Use this section to outline areas that you want to continue focusing on in futur
 4. I kinda hate the way data accessing looks in this iteration of this project looks. ie:
 
 ```tsx
-{countryData.data &&
-  !countryData.isLoading &&
-  !countryData.error &&
-  countryData.data.map((country) => {
-    const { flags, name, population, region, capital } = country
-    return (
-      <CountryCard
-        flags={flags}
-        name={name.common}
-        population={population}
-        region={region}
-        capital={capital}
-        key={name.common}
-        showSpecificCountry={showSpecificCountry}
-      />
-    )
-  })}
+
+{countryData.data  &&
+
+!countryData.isLoading  &&
+
+!countryData.error  &&
+
+countryData.data.map((country)  => {
+
+const { flags, name, population, region, capital } =  country
+
+return (
+
+<CountryCard
+
+flags={flags}
+
+name={name.common}
+
+population={population}
+
+region={region}
+
+capital={capital}
+
+key={name.common}
+
+showSpecificCountry={showSpecificCountry}
+
+/>
+
+)
+
+})}
+
 ```
 
-I'd rather have a consistent way to extract the data so that I only pull off the name of the relevant field and not the object associated with it. 
+I'd rather have a consistent way to extract the data so that I only pull off the name of the relevant field and not the object associated with it.
 
-### Useful resources
+###  Useful resources
 
-- [You might not need an Effect](https://react.dev/learn/you-might-not-need-an-effect) - This helped me understand a bit more about useEffect. 
+- [You might not need an Effect](https://react.dev/learn/you-might-not-need-an-effect) - This helped me understand a bit more about useEffect.
 
-- [Avoid prop drilling](https://www.freecodecamp.org/news/avoid-prop-drilling-in-react/) - This gave me the idea for lifting up the children into the parent. 
+- [Avoid prop drilling](https://www.freecodecamp.org/news/avoid-prop-drilling-in-react/) - This gave me the idea for lifting up the children into the parent.
 
-## Author
-
+##  Author
 
 - Frontend Mentor - [@Sensationull](https://www.frontendmentor.io/profile/Sensationull)
+
 - Github - [@Sensationull](https://github.com/Sensationull)
