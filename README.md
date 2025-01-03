@@ -80,7 +80,7 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 3. I'd really like to have the cards fade in when loading rather than pop in and page transitions when the user selects a specific country.
 
-4. I kinda hate the way data accessing looks in this iteration of this project looks. ie: 
+4. I kinda hate the way data accessing looks in this iteration of this project looks. ie:
 
 ```tsx
 {countryData.data &&
