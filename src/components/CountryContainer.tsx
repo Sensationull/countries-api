@@ -53,12 +53,12 @@ function CountryContainer({ showSpecificCountry }: CountryContainerProps) {
 
   // ~ Lifecycle methods ~
   useEffect(() => {
-    fetchSpecificCountries(debouncedValue)
+    fetchCountries(debouncedValue)
   }, [debouncedValue])
 
   useEffect(() => {
     if (selectedRegion) {
-      fetchCountriesByRegion()
+      fetchCountriesByRegion(selectedRegion)
     }
   }, [selectedRegion])
 
@@ -72,7 +72,7 @@ function CountryContainer({ showSpecificCountry }: CountryContainerProps) {
     }
   }, [value])
 
-  const fetchSpecificCountries = async (searchTerm: string) => {
+  const fetchCountries = async (searchTerm: string) => {
     setCountryData({
       data: [...countryData.data],
       isLoading: true,
@@ -102,14 +102,14 @@ function CountryContainer({ showSpecificCountry }: CountryContainerProps) {
     setCountryData({ data: [...data], isLoading: false, error: null })
   }
 
-  const fetchCountriesByRegion = async () => {
+  const fetchCountriesByRegion = async (region: string) => {
     setCountryData({
       data: [...countryData.data],
       isLoading: true,
       error: null,
     })
     const response = await fetch(
-      `https://restcountries.com/v3.1/region/${selectedRegion}`
+      `https://restcountries.com/v3.1/region/${region}`
     )
     if (!response.ok) {
       const error = await response.text()
