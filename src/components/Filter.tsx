@@ -7,7 +7,6 @@ type FilterProps = {
 
 function Filter({ setSelectedRegion }: FilterProps) {
   const handleFilter = (event: ChangeEvent<HTMLSelectElement>) => {
-    console.log({ target: event.target.value })
     setSelectedRegion(event.target.value)
   }
 

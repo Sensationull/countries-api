@@ -48,6 +48,7 @@ function CountryContainer({ showSpecificCountry }: CountryContainerProps) {
 
   // ~ State management ~
   const [value, setValue] = useState('')
+  const [debouncedValue, setDebouncedValue] = useState('')
   const [countryData, setCountryData] = useState<CountryData>({
     data: [],
     isLoading: false,
@@ -57,20 +58,28 @@ function CountryContainer({ showSpecificCountry }: CountryContainerProps) {
 
   // ~ Lifecycle methods ~
   useEffect(() => {
-    fetchInitialCountries()
-  }, [])
-
-  useEffect(() => {
-    if (value) {
-      fetchSpecificCountries()
+    if (debouncedValue) {
+      fetchSpecificCountries(debouncedValue)
+    } else {
+      fetchInitialCountries()
     }
-  }, [value])
+  }, [debouncedValue])
 
   useEffect(() => {
     if (selectedRegion) {
       fetchCountriesByRegion()
     }
   }, [selectedRegion])
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value)
+    }, 1000)
+
+    return () => {
+      clearTimeout(handler)
+    }
+  }, [value])
 
   // ~ fetch functions ~
   const fetchInitialCountries = async () => {
@@ -92,14 +101,14 @@ function CountryContainer({ showSpecificCountry }: CountryContainerProps) {
       })
   }
 
-  const fetchSpecificCountries = async () => {
+  const fetchSpecificCountries = async (searchTerm: string) => {
     setCountryData({
       data: [...countryData.data],
       isLoading: true,
       error: null,
     })
     const response = await fetch(
-      `https://restcountries.com/v3.1/name/${value}?fields=name,flags,capital,region,population`
+      `https://restcountries.com/v3.1/name/${searchTerm}?fields=name,flags,capital,region,population`
     )
     if (!response.ok) {
       const error = await response.text()
