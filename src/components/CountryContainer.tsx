@@ -1,7 +1,9 @@
 import { ChangeEvent, useEffect, useState } from 'react'
 import CountryCard from './CountryCard'
 import './CountryContainer.css'
-import SearchBar from './SearchBar'
+// import SearchBar from './SearchBar'
+import Search from './Search'
+import Filter from './Filter'
 
 type CountryInfo = {
   flags: {
@@ -34,16 +36,9 @@ type CountryContainerProps = {
 
 function CountryContainer({ showSpecificCountry }: CountryContainerProps) {
   /*
-    7. Search functionality
-        d. debouncing *Challenge*
-    8. Filter functionality
-        d. *Challenge! Pulling the regions from the API and memoizing that info?*
-        e. Is there a way to not pass the setSelectedRegion through SearchBar?
-        f. Is there a way to DRY up fetch calls and function defs? 
     9. Filter button styling
         b. style the options nope, see:
         https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#:~:text=The%20%3Cselect%3E%20element%20is,WAI%2DARIA%20to%20provide%20semantics.
-    12. ~Challenge~ Pagination on main page?
     */
 
   // ~ State management ~
@@ -58,11 +53,7 @@ function CountryContainer({ showSpecificCountry }: CountryContainerProps) {
 
   // ~ Lifecycle methods ~
   useEffect(() => {
-    if (debouncedValue) {
-      fetchSpecificCountries(debouncedValue)
-    } else {
-      fetchInitialCountries()
-    }
+    fetchSpecificCountries(debouncedValue)
   }, [debouncedValue])
 
   useEffect(() => {
@@ -81,35 +72,22 @@ function CountryContainer({ showSpecificCountry }: CountryContainerProps) {
     }
   }, [value])
 
-  // ~ fetch functions ~
-  const fetchInitialCountries = async () => {
-    setCountryData({ data: [], isLoading: true, error: null })
-    await fetch(
-      'https://restcountries.com/v3.1/all?fields=name,flags,capital,region,population'
-    )
-      .then((response) => response.json())
-      .then((data) =>
-        setCountryData({ data: [...data], isLoading: false, error: null })
-      )
-      .catch((error) => {
-        setCountryData({
-          data: [],
-          isLoading: false,
-          error: { status: error.status, message: error.message },
-        })
-        console.error(error)
-      })
-  }
-
   const fetchSpecificCountries = async (searchTerm: string) => {
     setCountryData({
       data: [...countryData.data],
       isLoading: true,
       error: null,
     })
-    const response = await fetch(
-      `https://restcountries.com/v3.1/name/${searchTerm}?fields=name,flags,capital,region,population`
-    )
+
+    const searchForAllCountries =
+      'https://restcountries.com/v3.1/all?fields=name,flags,capital,region,population'
+    let searchEndpoint = searchForAllCountries
+    const searchForSomeCountries = `https://restcountries.com/v3.1/name/${searchTerm}?fields=name,flags,capital,region,population`
+    if (searchTerm !== '') {
+      searchEndpoint = searchForSomeCountries
+    }
+
+    const response = await fetch(searchEndpoint)
     if (!response.ok) {
       const error = await response.text()
       const parsedError = JSON.parse(error)
@@ -154,11 +132,17 @@ function CountryContainer({ showSpecificCountry }: CountryContainerProps) {
 
   return (
     <main className="country-container">
-      <SearchBar
-        value={value}
-        handleSearch={handleSearch}
-        setSelectedRegion={setSelectedRegion}
-      />
+      <div className="search-bar-container">
+        <div className="search-bar">
+          <Search />
+          <input
+            placeholder="Search for a country..."
+            value={value}
+            onChange={handleSearch}
+          />
+        </div>
+        <Filter setSelectedRegion={setSelectedRegion} />
+      </div>
       <div className="country-card-container">
         {countryData.isLoading && <div>Loading...</div>}
         {countryData.error && (
