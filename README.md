@@ -14,9 +14,6 @@ This is a solution to the [REST Countries API with color theme switcher challeng
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -45,11 +42,11 @@ Users should be able to:
 
 I started out by removing the starter code for a React + Vite project and putting in some CSS resets and variables that would control the scaffolding of the layout for the homepage. After scaffolding the layout for the home page and the country cards on both mobile and desktop, I started the JS/TS side of state management. I wrote the initial code for fetching from the [Rest Countries](https://restcountries.com/) API and setting it locally in state.
 
-I had to detour for a bit to setup Prettier and ESlint because coding without it was less than ideal. Format on Save is a god-send for readability. 
+I had to detour for a bit to setup Prettier and ESlint because coding without it was less than ideal. Format on Save is a god-send for my ability to read the code I write. 
 
 After that, I added some simple error states and implemented dark mode. I decided it would be easier to implement dark mode earlier on rather than later. 
 
-I then turned my attention to the <CountryPage/> component which is when a user selects an individual country for more information. So same deal as the homepage, CSS scaffolding, data retreival, and then final CSS touches
+I then turned my attention to the CountryPage component which is when a user selects an individual country for more information. So same deal as the homepage, CSS scaffolding, data retreival, and then final CSS touches
 
 Lastly, I went back DRYed up some function defs, moved some code around to avoid prop drilling, and changed some data accessing styles to ensure that content didn't overflow on the country cards. 
 
