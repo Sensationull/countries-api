@@ -64,7 +64,7 @@ Lastly, I went back DRYed up some function defs, moved some code around to avoid
 
 ###  What I learned
 
-1. [Styling a select option](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#:~:text=The%20%3Cselect%3E%20element%20is,WAI%2DARIA%20to%20provide%20semantics.) is actually pretty difficult, and I didn't know that until the end of this project, because I stepped away from styling to finish the core functionality. I ended up deciding to not style the dropdown menu from the <select> Filter due to time constraints. I may change it to be a <ul> element later, but not at this moment. I'm trying to not let perfect be the enemy of good.
+1. [Styling a select option](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#:~:text=The%20%3Cselect%3E%20element%20is,WAI%2DARIA%20to%20provide%20semantics.) is actually pretty difficult, and I didn't know that until the end of this project, because I stepped away from styling to finish the core functionality. I ended up deciding to not style the dropdown menu from the select Filter due to time constraints. I may change it to be a ul element later, but not at this moment. I'm trying to not let perfect be the enemy of good.
 
 2. How to setup Prettier & Eslint for a project
 
