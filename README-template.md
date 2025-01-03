@@ -33,15 +33,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![/Users/sensationull/projects/countries-api/assets/images/Light Mode.png](./screenshot.jpg)
 
 ### Links
 
@@ -50,66 +42,76 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ## My process
 
+I started out by removing the starter code for a React + Vite project and putting in some CSS resets and variables that would control the scaffolding of the layout for the homepage. After scaffolding the layout for the home page and the country cards on both mobile and desktop, I started the JS/TS side of state management. I wrote the initial code for fetching from the [Rest Countries](https://restcountries.com/) API and setting it locally in state.
+
+I had to detour for a bit to setup Prettier and ESlint because coding without it was less than ideal. Format on Save is a god-send for readability. 
+
+After that, I added some simple error states and implemented dark mode. I decided it would be easier to implement dark mode earlier on rather than later. 
+
+I then turned my attention to the <CountryPage/> component which is when a user selects an individual country for more information. So same deal as the homepage, CSS scaffolding, data retreival, and then final CSS touches
+
+Lastly, I went back DRYed up some function defs, moved some code around to avoid prop drilling, and changed some data accessing styles to ensure that content didn't overflow on the country cards. 
+
 ### Built with
 
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- Typescript
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+1. [Styling a select option](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#:~:text=The%20%3Cselect%3E%20element%20is,WAI%2DARIA%20to%20provide%20semantics.) is actually pretty difficult, and I didn't know that until the end of this project, because I stepped away from styling to finish the core functionality. I ended up deciding to not style the dropdown menu from the <select> Filter due to time constraints. I may change it to be a <ul> element later, but not at this moment. I'm trying to not let perfect be the enemy of good.
 
-To see how you can add code snippets, see below:
+2. How to setup Prettier & Eslint for a project
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
+3. A way to avoid prop drilling, which I ended up encountering with the Filter component. Rather than use useContext, I lifted up the child component to the CountryContainer component. I think if I'd gone the useContext route, I'd have tied that component to a specific context and it ultimately would've hindered component composition/reusability and that's not a habit I want to get into. 
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
 Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+1. I didn't use routing to display the pages. That's something that could be useful here, but I haven't gotten around to it yet.
+
+2. Pagination would be nice for the homepage.
+
+3. I'd really like to have the cards fade in when loading rather than pop in and page transitions when the user selects a specific country.
+
+4. I kinda hate the way data accessing looks in this iteration of this project looks. ie: 
+
+```tsx
+{countryData.data &&
+  !countryData.isLoading &&
+  !countryData.error &&
+  countryData.data.map((country) => {
+    const { flags, name, population, region, capital } = country
+    return (
+      <CountryCard
+        flags={flags}
+        name={name.common}
+        population={population}
+        region={region}
+        capital={capital}
+        key={name.common}
+        showSpecificCountry={showSpecificCountry}
+      />
+    )
+  })}
+```
+
+I'd rather have a consistent way to extract the data so that I only pull off the name of the relevant field and not the object associated with it. 
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [You might not need an Effect](https://react.dev/learn/you-might-not-need-an-effect) - This helped me understand a bit more about useEffect. 
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Avoid prop drilling](https://www.freecodecamp.org/news/avoid-prop-drilling-in-react/) - This gave me the idea for lifting up the children into the parent. 
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
 
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Frontend Mentor - [@Sensationull](https://www.frontendmentor.io/profile/Sensationull)
+- Github - [@Sensationull](https://github.com/Sensationull)
