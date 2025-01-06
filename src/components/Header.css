@@ -11,6 +11,7 @@
     font-size: var(--spacing-300);
     background-color: var(--primary-bg-color);
     color: var(--text-color);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 6%);
 }
 
 .dark-mode-container {

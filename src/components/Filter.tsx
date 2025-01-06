@@ -32,7 +32,7 @@ function Filter({ setSelectedRegion }: FilterProps) {
   ]
 
   return (
-    <div className="container">
+    <nav className="dropdown-container">
       <button type="button" className="button" onClick={handleDropdownClick}>
         {buttonName}
         <DownArrow />
@@ -48,7 +48,7 @@ function Filter({ setSelectedRegion }: FilterProps) {
           </ul>
         </div>
       )}
-    </div>
+    </nav>
   )
 }
 
