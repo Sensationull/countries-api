@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react'
+import { BaseSyntheticEvent, useState } from 'react'
 import './Filter.css'
 import { DownArrow } from './DownArrow'
 
@@ -10,7 +10,7 @@ function Filter({ setSelectedRegion }: FilterProps) {
   const [menuIsOpen, setMenuIsOpen] = useState({ dropdown: false })
   const [buttonName, setButtonName] = useState('Filter By Region')
 
-  const handleFilter = (event: ChangeEvent<HTMLLIElement>) => {
+  const handleFilter = (event: BaseSyntheticEvent) => {
     if (event.target.textContent) {
       setSelectedRegion(event.target.textContent)
       setButtonName(event.target.textContent)
