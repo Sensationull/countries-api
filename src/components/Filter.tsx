@@ -1,14 +1,25 @@
-import { ChangeEvent } from 'react'
+import { ChangeEvent, useState } from 'react'
 import './Filter.css'
+import { DownArrow } from './DownArrow'
 
 type FilterProps = {
   setSelectedRegion: React.Dispatch<React.SetStateAction<string>>
 }
 
 function Filter({ setSelectedRegion }: FilterProps) {
-  const handleFilter = (event: ChangeEvent<HTMLSelectElement>) => {
-    setSelectedRegion(event.target.value)
+  const [menuIsOpen, setMenuIsOpen] = useState({ dropdown: false })
+  const [buttonName, setButtonName] = useState('Filter By Region')
+
+  const handleFilter = (event: ChangeEvent<HTMLLIElement>) => {
+    if (event.target.textContent) {
+      setSelectedRegion(event.target.textContent)
+      setButtonName(event.target.textContent)
+    }
+    setMenuIsOpen({ dropdown: !menuIsOpen.dropdown })
   }
+
+  const handleDropdownClick = () =>
+    setMenuIsOpen({ dropdown: !menuIsOpen.dropdown })
 
   const regions = [
     'Africa',
@@ -21,21 +32,23 @@ function Filter({ setSelectedRegion }: FilterProps) {
   ]
 
   return (
-    <select
-      className="filter"
-      name="Regions"
-      onChange={handleFilter}
-      defaultValue="Filter by region"
-    >
-      <option disabled>Filter by region</option>
-      {regions.map((region) => {
-        return (
-          <option key={region} value={region}>
-            {region}
-          </option>
-        )
-      })}
-    </select>
+    <div className="container">
+      <button type="button" className="button" onClick={handleDropdownClick}>
+        {buttonName}
+        <DownArrow />
+      </button>
+      {menuIsOpen.dropdown && (
+        <div className="dropdown">
+          <ul>
+            {regions.map((region) => (
+              <li key={region} onClick={handleFilter} value={region}>
+                {region}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
   )
 }
 

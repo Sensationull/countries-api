@@ -12,3 +12,52 @@
     background-repeat: no-repeat;
     background-position: center right 2rem;
 }
+
+.container {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown {
+    position:absolute;
+    width: 100%;
+    background-color: var(--white);
+    margin-top: .25rem;
+    border-radius: .3rem;
+}
+
+.button {
+    cursor: pointer;
+    width: 200px;
+    border: none;
+    background-color: var(--primary-bg-color); 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-radius: .3rem;
+    font-size: var(--regular-font-size);
+}
+
+.button svg {
+    fill: var(--text-color);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: var(--primary-bg-color);  
+    padding: 1rem;
+    border-radius: .3rem;
+}
+
+li {
+    padding: 4px 3px;
+    font-size: var(--small-font-size);
+}
+
+li:hover {
+    background-color: rgba(0,0,0,0.14);
+    cursor: pointer;
+}
