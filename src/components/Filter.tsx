@@ -1,4 +1,4 @@
-import { BaseSyntheticEvent, useState } from 'react'
+import { BaseSyntheticEvent, useEffect, useRef, useState } from 'react'
 import './Filter.css'
 import { DownArrow } from './DownArrow'
 
@@ -9,6 +9,24 @@ type FilterProps = {
 function Filter({ setSelectedRegion }: FilterProps) {
   const [menuIsOpen, setMenuIsOpen] = useState({ dropdown: false })
   const [buttonName, setButtonName] = useState('Filter By Region')
+  const container = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside)
+
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  const handleClickOutside = (event: MouseEvent) => {
+    console.log({ event })
+    if (
+      container.current &&
+      !container.current.contains(event.target as Node)
+      /* Suggested cast: https://stackoverflow.com/questions/61164018/typescript-ev-target-and-node-contains-eventtarget-is-not-assignable-to-node */
+    ) {
+      setMenuIsOpen({ dropdown: false })
+    }
+  }
 
   const handleFilter = (event: BaseSyntheticEvent) => {
     if (event.target.textContent) {
@@ -32,7 +50,7 @@ function Filter({ setSelectedRegion }: FilterProps) {
   ]
 
   return (
-    <nav className="dropdown-container">
+    <nav className="dropdown-container" ref={container}>
       <button type="button" className="button" onClick={handleDropdownClick}>
         {buttonName}
         <DownArrow />
