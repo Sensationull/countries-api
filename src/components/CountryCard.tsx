@@ -7,7 +7,6 @@ type CountryCardProps = {
   population: string
   region: string
   capital: string
-  // showSpecificCountry(country: string): void
 }
 
 function CountryCard({
@@ -16,7 +15,6 @@ function CountryCard({
   population,
   region,
   capital,
-  // showSpecificCountry,
 }: CountryCardProps) {
   return (
     <Link to={`country/${name}`} className="link">
