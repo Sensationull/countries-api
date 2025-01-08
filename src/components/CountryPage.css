@@ -16,13 +16,13 @@
     column-gap: 3rem;
 }
 
-.country-flag-xl {
+.country-page-flag-xl {
     max-height: 401px;
     max-width: 560px;
     border-radius: .3rem;
 }
 
-.country-text-container {
+.country-page-text-container {
     height: 323px;
     width: 598px;
     display:flex;
@@ -31,39 +31,40 @@
     row-gap: .5rem;
 }
 
-.country-name-header {
+.country-page-name-header {
     font-size:var(--bold-font-size);
     font-weight: var(--font-weight-800);
 }
 
-.country-description-container {
+.country-page-description-container {
     display: flex;
     justify-content: space-between;
     padding: 0rem 2rem 0rem 0rem;
     column-gap: 1rem;
 }
 
-.country-name-native,
-.country-population,
-.country-region,
-.country-subregion,
-.country-tld,
-.country-currencies,
-.country-languages,
-.country-borders {
+.country-page-name-native,
+.country-page-population,
+.country-page-region,
+.country-page-subregion,
+.country-page-tld,
+.country-page-currencies,
+.country-page-languages,
+.country-page-capital,
+.country-page-borders {
     font-weight: var(--font-weight-600);
     margin-bottom: .25rem;
 }
 
-.country-data {
+.country-page-data {
     font-weight: var(--font-weight-300);
 }
 
-.country-basic-info, .country-advanced-info {
+.country-page-basic-info, .country-page-advanced-info {
     max-width: 12rem;
 }
 
-.country-borders {
+.country-page-borders {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -71,7 +72,7 @@
     row-gap: 1.25rem;
 }
 
-.border-country-button {
+.border-country-page-button {
     width: 96px;
     height: 28px;
     font-size: var(--regular-font-size);
@@ -83,6 +84,7 @@
     margin-bottom: .75rem;
     color: var(--text-color);
     background-color: var(--primary-bg-color);
+    cursor: pointer;
 }
 
 .back-button {
@@ -102,6 +104,12 @@
 
 .back-button svg {
     fill: var(--text-color);
+}
+
+.link {
+    color: inherit;
+    text-decoration: inherit;
+    display: contents;
 }
 
 @media (min-width: 0px) and (max-width: 750px) {

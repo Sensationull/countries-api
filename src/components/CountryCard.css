@@ -37,9 +37,16 @@
 
 .country-population, .country-region, .country-capital {
     font-weight: var(--font-weight-600);
-    font-size: var(--regular-font-size)
+    font-size: var(--regular-font-size);
+    margin-bottom: .25rem;
 }
 
 .card-data {
     font-weight: var(--font-weight-300);
+}
+
+.link {
+    color: inherit;
+    text-decoration: inherit;
+    display: contents;
 }
