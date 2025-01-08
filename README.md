@@ -21,11 +21,11 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 
 Users should be able to:
 
-- See all countries from the API on the homepage
-- Search for a country using an `input` field
-- Filter countries by region
-- Click on a country to see more detailed information on a separate page
-- Click through to the border countries on the detail page
+- See all countries from the API on the homepage (Done)
+- Search for a country using an `input` field (Done)
+- Filter countries by region (Done)
+- Click on a country to see more detailed information on a separate page (Done)
+- Click through to the border countries on the detail page (Not done/API limitation??? See below)
 - Toggle the color scheme between light and dark mode *(optional)*
 
 ### Screenshot
@@ -48,7 +48,9 @@ After that, I added some simple error states and implemented dark mode. I decide
 
 I then turned my attention to the CountryPage component which is when a user selects an individual country for more information. So same deal as the homepage, CSS scaffolding, data retreival, and then final CSS touches
 
-Lastly, I went back DRYed up some function defs, moved some code around to avoid prop drilling, and changed some data accessing styles to ensure that content didn't overflow on the country cards. 
+I went back DRYed up some function defs, moved some code around to avoid prop drilling, and changed some data accessing styles to ensure that content didn't overflow on the country cards. 
+
+I came back to refactor the code so that client-side routing could be implemented with React router. 
 
 ### Built with
 
@@ -58,6 +60,7 @@ Lastly, I went back DRYed up some function defs, moved some code around to avoid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 - Typescript
+- [React Router](https://reactrouter.com/home) 
 
 ###  What I learned
 
@@ -67,9 +70,11 @@ Lastly, I went back DRYed up some function defs, moved some code around to avoid
 
 3. A way to avoid prop drilling, which I ended up encountering with the Filter component. Rather than use useContext, I lifted up the child component to the CountryContainer component. I think if I'd gone the useContext route, I'd have tied that component to a specific context and it ultimately would've hindered component composition/reusability and that's not a habit I want to get into.
 
+4. First side project with React Router which was easier to implement than I'd thought. 
+
 ###  Continued development
 
-1. I didn't use routing to display the pages. That's something that could be useful here, but I haven't gotten around to it yet.
+1. The buttons on the individual countries don't show the countries name, but rather their country codes. AND you can't actually click them to take you elsewhere. I'm currently inclined to believe that this is a limitation of the API, as I'm unsure how to get the full names of the border countries from the API request so that they show up as their common names and secondly, how to fetch them from the country page itself. There could be some data transforming that could happen here to compare the border country codes to their names...
 
 2. Pagination would be nice for the homepage.
 
