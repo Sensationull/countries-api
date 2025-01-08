@@ -18,7 +18,6 @@ function Filter({ setSelectedRegion }: FilterProps) {
   }, [])
 
   const handleClickOutside = (event: MouseEvent) => {
-    console.log({ event })
     if (
       container.current &&
       !container.current.contains(event.target as Node)

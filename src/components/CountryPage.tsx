@@ -45,10 +45,10 @@ function CountryPage({ showAllCountries, showCountryPage }: CountryPageProps) {
     }
   )
 
-  const fetchCountryInfo = async () => {
+  const fetchCountryInfo = async (countryName: string) => {
     setSingleCountryInfo({ data: [], isLoading: true, error: null })
     const response = await fetch(
-      `https://restcountries.com/v3.1/name/${showCountryPage.country}?fields=name,flags,capital,region,languages,population,subregion,tld,currencies,borders`
+      `https://restcountries.com/v3.1/name/${countryName}?fields=name,flags,capital,region,languages,population,subregion,tld,currencies,borders`
     )
     if (!response.ok) {
       const error = await response.text()
@@ -65,7 +65,7 @@ function CountryPage({ showAllCountries, showCountryPage }: CountryPageProps) {
   }
 
   useEffect(() => {
-    fetchCountryInfo()
+    fetchCountryInfo(showCountryPage.country)
   }, [])
 
   if (singleCountryInfo.error) {
@@ -98,7 +98,7 @@ function CountryPage({ showAllCountries, showCountryPage }: CountryPageProps) {
         />
         <aside className="country-text-container">
           <div className="country-name-header">
-            {singleCountryInfo.data[0].name.official}
+            {singleCountryInfo.data[0].name.common}
           </div>
           <div className="country-description-container">
             <div className="country-basic-info">
