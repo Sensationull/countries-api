@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './CountryPage.css'
 import { BackArrow } from './BackArrow'
+import { Link, useParams } from 'react-router'
 
 type CountryPageInfo = {
   flags: {
@@ -25,18 +26,16 @@ type CountryPageInfo = {
   borders: string[]
 }
 
-type CountryPageProps = {
-  showAllCountries(): void
-  showCountryPage: { shouldShowCountryPage: boolean; country: string }
-}
-
 type SingleCountryData = {
   data: CountryPageInfo[] | []
   isLoading: boolean
   error: { status: number; message: string } | null
 }
 
-function CountryPage({ showAllCountries, showCountryPage }: CountryPageProps) {
+function CountryPage() {
+  const params = useParams()
+  console.log({ params })
+
   const [singleCountryInfo, setSingleCountryInfo] = useState<SingleCountryData>(
     {
       data: [],
@@ -65,7 +64,9 @@ function CountryPage({ showAllCountries, showCountryPage }: CountryPageProps) {
   }
 
   useEffect(() => {
-    fetchCountryInfo(showCountryPage.country)
+    if (params.name) {
+      fetchCountryInfo(params.name)
+    }
   }, [])
 
   if (singleCountryInfo.error) {
@@ -86,10 +87,12 @@ function CountryPage({ showAllCountries, showCountryPage }: CountryPageProps) {
 
   return (
     <main className="country-page-container">
-      <button className="back-button" onClick={showAllCountries}>
-        <BackArrow />
-        Back
-      </button>
+      <Link to="/" className="link">
+        <button className="back-button">
+          <BackArrow />
+          Back
+        </button>
+      </Link>
       <section className="country-page-info">
         <img
           className="country-flag-xl"

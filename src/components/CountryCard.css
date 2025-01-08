@@ -43,3 +43,8 @@
 .card-data {
     font-weight: var(--font-weight-300);
 }
+
+.link {
+    color: inherit;
+    text-decoration: inherit;
+}

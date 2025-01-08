@@ -30,11 +30,11 @@ type CountryData = {
   error: { status: number; message: string } | null
 }
 
-type CountryContainerProps = {
-  showSpecificCountry(country: string): void
-}
+// type CountryContainerProps = {
+//   showSpecificCountry(country: string): void
+// }
 
-function CountryContainer({ showSpecificCountry }: CountryContainerProps) {
+function CountryContainer() {
   /*
     9. Filter button styling
         b. style the options nope, see:
@@ -164,7 +164,7 @@ function CountryContainer({ showSpecificCountry }: CountryContainerProps) {
                 region={region}
                 capital={capital}
                 key={name.common}
-                showSpecificCountry={showSpecificCountry}
+                // showSpecificCountry={showSpecificCountry}
               />
             )
           })}

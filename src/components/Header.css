@@ -1,5 +1,3 @@
-
-
 .header {
     min-height: 5rem;
     width: 100vw;
@@ -21,6 +19,11 @@
     gap: .5rem;
     font-weight: var(--font-weight-300);
     font-size: var(--regular-font-size);
+}
+
+.link {
+    color: inherit;
+    text-decoration: inherit;
 }
 
 @media (min-width: 0px) and (max-width: 750px) {
