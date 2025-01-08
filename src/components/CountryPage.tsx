@@ -34,7 +34,6 @@ type SingleCountryData = {
 
 function CountryPage() {
   const params = useParams()
-  console.log({ params })
 
   const [singleCountryInfo, setSingleCountryInfo] = useState<SingleCountryData>(
     {
@@ -95,19 +94,19 @@ function CountryPage() {
       </Link>
       <section className="country-page-info">
         <img
-          className="country-flag-xl"
+          className="country-page-flag-xl"
           src={singleCountryInfo.data[0].flags.svg}
           alt={singleCountryInfo.data[0].flags.alt}
         />
-        <aside className="country-text-container">
-          <div className="country-name-header">
+        <aside className="country-page-text-container">
+          <div className="country-page-name-header">
             {singleCountryInfo.data[0].name.common}
           </div>
-          <div className="country-description-container">
-            <div className="country-basic-info">
-              <div className="country-name-native">
+          <div className="country-page-description-container">
+            <div className="country-page-basic-info">
+              <div className="country-page-name-native">
                 Native Name:{' '}
-                <span className="country-data">
+                <span className="country-page-data">
                   {
                     Object.values(singleCountryInfo.data[0].name.nativeName)[0]
                       .official
@@ -115,53 +114,53 @@ function CountryPage() {
                   }
                 </span>
               </div>
-              <div className="country-population">
+              <div className="country-page-population">
                 Population:{' '}
-                <span className="country-data">
+                <span className="country-page-data">
                   {Number(
                     singleCountryInfo.data[0].population
                   ).toLocaleString()}
                 </span>
               </div>
-              <div className="country-region">
+              <div className="country-page-region">
                 Region:{' '}
-                <span className="country-data">
+                <span className="country-page-data">
                   {singleCountryInfo.data[0].region}
                 </span>
               </div>
               {singleCountryInfo.data[0].subregion && (
-                <div className="country-subregion">
+                <div className="country-page-subregion">
                   Sub Region:{' '}
-                  <span className="country-data">
+                  <span className="country-page-data">
                     {singleCountryInfo.data[0].subregion}
                   </span>
                 </div>
               )}
               {singleCountryInfo.data[0].capital && (
-                <div className="country-capital">
+                <div className="country-page-capital">
                   Capital:{' '}
-                  <span className="country-data">
+                  <span className="country-page-data">
                     {singleCountryInfo.data[0].capital}
                   </span>
                 </div>
               )}
             </div>
-            <div className="country-advanced-info">
-              <div className="country-tld">
+            <div className="country-page-advanced-info">
+              <div className="country-page-tld">
                 Top Level Domain:{' '}
-                <span className="country-data">
+                <span className="country-page-data">
                   {singleCountryInfo.data[0].tld}
                 </span>
               </div>
-              <div className="country-currencies">
+              <div className="country-page-currencies">
                 Currencies:{' '}
-                <span className="country-data">
+                <span className="country-page-data">
                   {Object.values(singleCountryInfo.data[0].currencies)[0].name}
                 </span>
               </div>
-              <div className="country-languages">
+              <div className="country-page-languages">
                 Languages:{' '}
-                <span className="country-data">
+                <span className="country-page-data">
                   {Object.values(singleCountryInfo.data[0].languages).map(
                     (language) => (
                       <span key={language}> {language} </span>
@@ -173,13 +172,16 @@ function CountryPage() {
           </div>
 
           {singleCountryInfo.data[0].borders.length > 0 && (
-            <div className="country-border-container">
-              <span className="country-borders">
+            <div className="country-page-border-container">
+              <span className="country-page-borders">
                 Border Countries:{' '}
-                <span className="country-border-buttons">
+                <span className="country-page-border-buttons">
                   {Object.values(singleCountryInfo.data[0].borders).map(
                     (border) => (
-                      <button key={border} className="border-country-button">
+                      <button
+                        key={border}
+                        className="border-country-page-button"
+                      >
                         {border}
                       </button>
                     )

@@ -24,6 +24,7 @@
 .link {
     color: inherit;
     text-decoration: inherit;
+    display: contents;
 }
 
 @media (min-width: 0px) and (max-width: 750px) {

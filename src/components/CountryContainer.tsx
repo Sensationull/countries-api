@@ -1,7 +1,6 @@
 import { ChangeEvent, useEffect, useState } from 'react'
 import CountryCard from './CountryCard'
 import './CountryContainer.css'
-// import SearchBar from './SearchBar'
 import Search from './Search'
 import Filter from './Filter'
 
@@ -30,17 +29,7 @@ type CountryData = {
   error: { status: number; message: string } | null
 }
 
-// type CountryContainerProps = {
-//   showSpecificCountry(country: string): void
-// }
-
 function CountryContainer() {
-  /*
-    9. Filter button styling
-        b. style the options nope, see:
-        https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#:~:text=The%20%3Cselect%3E%20element%20is,WAI%2DARIA%20to%20provide%20semantics.
-    */
-
   // ~ State management ~
   const [value, setValue] = useState('')
   const [debouncedValue, setDebouncedValue] = useState('')
@@ -164,7 +153,6 @@ function CountryContainer() {
                 region={region}
                 capital={capital}
                 key={name.common}
-                // showSpecificCountry={showSpecificCountry}
               />
             )
           })}
