@@ -74,7 +74,8 @@
 }
 
 .border-country-page-button {
-    width: 96px;
+    min-width: 96px;
+    max-width: fit-content;
     height: 28px;
     font-size: var(--regular-font-size);
     font-weight: var(--font-weight-300);

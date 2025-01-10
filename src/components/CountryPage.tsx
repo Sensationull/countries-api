@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './CountryPage.css'
 import { BackArrow } from './BackArrow'
 import { Link, useParams } from 'react-router'
+import { getBorderCountryName } from '../helpers/borderCountries'
 
 type CountryPageInfo = {
   flags: {
@@ -33,7 +34,7 @@ type SingleCountryData = {
 }
 
 function CountryPage() {
-  const params = useParams()
+  const { name } = useParams()
 
   const [singleCountryInfo, setSingleCountryInfo] = useState<SingleCountryData>(
     {
@@ -63,10 +64,10 @@ function CountryPage() {
   }
 
   useEffect(() => {
-    if (params.name) {
-      fetchCountryInfo(params.name)
+    if (name) {
+      fetchCountryInfo(name)
     }
-  }, [])
+  }, [name])
 
   if (singleCountryInfo.error) {
     return (
@@ -178,12 +179,14 @@ function CountryPage() {
                 <span className="country-page-border-buttons">
                   {Object.values(singleCountryInfo.data[0].borders).map(
                     (border) => (
-                      <button
+                      <Link
                         key={border}
-                        className="border-country-page-button"
+                        to={`/country/${getBorderCountryName(border)}`}
                       >
-                        {border}
-                      </button>
+                        <button className="border-country-page-button">
+                          {getBorderCountryName(border)}
+                        </button>
+                      </Link>
                     )
                   )}
                 </span>
