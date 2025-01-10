@@ -25,8 +25,8 @@ Users should be able to:
 - Search for a country using an `input` field (Done)
 - Filter countries by region (Done)
 - Click on a country to see more detailed information on a separate page (Done)
-- Click through to the border countries on the detail page (Not done/API limitation??? See below)
-- Toggle the color scheme between light and dark mode *(optional)*
+- Click through to the border countries on the detail page (Done)
+- Toggle the color scheme between light and dark mode *(optional)* (Done)
 
 ### Screenshot
 
@@ -52,6 +52,7 @@ I went back DRYed up some function defs, moved some code around to avoid prop dr
 
 I came back to refactor the code so that client-side routing could be implemented with React router. 
 
+I was originally unable to figure out how to pull the border country names for a specfic country from the API. As far as I can tell, you can't right now. So to overcome that issue,  I'm doing a comparison of the country alphaCode3 (ie. VEN = Venezuela) given by the API to represent the border countries and the data.json file where all the country objects exist. When a match is found, I place the resulting name into the button. I wrapped the button in a Link component to enable navigation to that country's page. 
 ### Built with
 
 - Semantic HTML5 markup
@@ -70,17 +71,15 @@ I came back to refactor the code so that client-side routing could be implemente
 
 3. A way to avoid prop drilling, which I ended up encountering with the Filter component. Rather than use useContext, I lifted up the child component to the CountryContainer component. I think if I'd gone the useContext route, I'd have tied that component to a specific context and it ultimately would've hindered component composition/reusability and that's not a habit I want to get into.
 
-4. First side project with React Router which was easier to implement than I'd thought. 
+4. First side project with React Router, which was easier to implement than I'd thought. 
 
 ###  Continued development
 
-1. The buttons on the individual countries don't show the countries name, but rather their country codes. AND you can't actually click them to take you elsewhere. I'm currently inclined to believe that this is a limitation of the API, as I'm unsure how to get the full names of the border countries from the API request so that they show up as their common names and secondly, how to fetch them from the country page itself. There could be some data transforming that could happen here to compare the border country codes to their names...
+1. Pagination would be nice for the homepage.
 
-2. Pagination would be nice for the homepage.
+2. I'd really like to have the cards fade in when loading rather than pop in and page transitions when the user selects a specific country.
 
-3. I'd really like to have the cards fade in when loading rather than pop in and page transitions when the user selects a specific country.
-
-4. I kinda hate the way data accessing looks in this iteration of this project looks. ie:
+3. I kinda hate the way data accessing looks in this iteration of this project looks. ie:
 
 ```tsx
 
