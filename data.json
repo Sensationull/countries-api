@@ -1693,7 +1693,7 @@
     "independent": true
   },
   {
-    "name": "Bolivia (Plurinational State of)",
+    "name": "Bolivia",
     "topLevelDomain": [".bo"],
     "alpha2Code": "BO",
     "alpha3Code": "BOL",
@@ -3618,7 +3618,7 @@
     "independent": true
   },
   {
-    "name": "Congo (Democratic Republic of the)",
+    "name": "DR Congo",
     "topLevelDomain": [".cd"],
     "alpha2Code": "CD",
     "alpha3Code": "COD",
@@ -7230,7 +7230,7 @@
     "independent": true
   },
   {
-    "name": "Iran (Islamic Republic of)",
+    "name": "Iran",
     "topLevelDomain": [".ir"],
     "alpha2Code": "IR",
     "alpha3Code": "IRN",
@@ -9848,7 +9848,7 @@
     "independent": true
   },
   {
-    "name": "Moldova (Republic of)",
+    "name": "Moldova",
     "topLevelDomain": [".md"],
     "alpha2Code": "MD",
     "alpha3Code": "MDA",
@@ -11076,7 +11076,7 @@
     "independent": false
   },
   {
-    "name": "Korea (Democratic People's Republic of)",
+    "name": "North Korea",
     "topLevelDomain": [".kp"],
     "alpha2Code": "KP",
     "alpha3Code": "PRK",
@@ -14134,7 +14134,7 @@
     "independent": false
   },
   {
-    "name": "Korea (Republic of)",
+    "name": "South Korea",
     "topLevelDomain": [".kr"],
     "alpha2Code": "KR",
     "alpha3Code": "KOR",
@@ -16344,7 +16344,7 @@
     "independent": true
   },
   {
-    "name": "Venezuela (Bolivarian Republic of)",
+    "name": "Venezuela",
     "topLevelDomain": [".ve"],
     "alpha2Code": "VE",
     "alpha3Code": "VEN",
