@@ -147,5 +147,31 @@
         max-width: 320px;
     }
 
-    
+    .country-page-description-container {
+        flex-direction: column;
+        row-gap: 2rem;
+    }
+
+    .country-page-basic-info, .country-page-advanced-info {
+        max-width: 20rem;
+    }
+
+    .country-page-name-native,
+    .country-page-population,
+    .country-page-region,
+    .country-page-subregion,
+    .country-page-tld,
+    .country-page-currencies,
+    .country-page-languages,
+    .country-page-capital,
+    .country-page-borders {
+        margin-bottom: .75rem;
+    }
+
+    .country-page-text-container {
+        border: 1px solid red;
+        height: 100%;
+        max-width: 360px;
+        padding: 2rem 0rem;
+    }
   }
