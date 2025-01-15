@@ -139,10 +139,14 @@ function CountryContainer() {
       <div className="country-card-container">
         <AnimatePresence>
           {countryData.error && (
-            <>
+            <motion.div
+              className="country-errors"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+            >
               <div>{countryData.error.status}</div>
               <div>{countryData.error.message}</div>
-            </>
+            </motion.div>
           )}
           {countryData.data &&
             !countryData.isLoading &&
@@ -154,7 +158,8 @@ function CountryContainer() {
                   key={name.common}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  exit={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  exit={{ opacity: 0 }}
                 >
                   <CountryCard
                     flags={flags}
