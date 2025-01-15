@@ -14,7 +14,7 @@ createRoot(document.getElementById('root')!).render(
         <Routes>
           <Route path="/countries-api" element={<App />}>
             <Route index element={<CountryContainer />} />
-            <Route path="/country/:name" element={<CountryPage />} />
+            <Route path="country/:name" element={<CountryPage />} />
           </Route>
         </Routes>
       </ThemeProvider>
