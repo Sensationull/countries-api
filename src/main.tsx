@@ -12,7 +12,7 @@ createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
       <ThemeProvider>
         <Routes>
-          <Route path="/" element={<App />}>
+          <Route path="/countries-api" element={<App />}>
             <Route index element={<CountryContainer />} />
             <Route path="/country/:name" element={<CountryPage />} />
           </Route>
