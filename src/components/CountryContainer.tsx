@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from 'motion/react'
 import { ChangeEvent, useEffect, useState } from 'react'
 import CountryCard from './CountryCard'
 import './CountryContainer.css'
@@ -60,6 +61,8 @@ function CountryContainer() {
       clearTimeout(handler)
     }
   }, [value])
+
+  // ~ API requests ~
 
   const fetchCountries = async (searchTerm: string) => {
     setCountryData({
@@ -132,30 +135,39 @@ function CountryContainer() {
         </div>
         <Filter setSelectedRegion={setSelectedRegion} />
       </div>
+
       <div className="country-card-container">
-        {countryData.isLoading && <div>Loading...</div>}
-        {countryData.error && (
-          <>
-            <div>{countryData.error.status}</div>
-            <div>{countryData.error.message}</div>
-          </>
-        )}
-        {countryData.data &&
-          !countryData.isLoading &&
-          !countryData.error &&
-          countryData.data.map((country) => {
-            const { flags, name, population, region, capital } = country
-            return (
-              <CountryCard
-                flags={flags}
-                name={name.common}
-                population={population}
-                region={region}
-                capital={capital}
-                key={name.common}
-              />
-            )
-          })}
+        <AnimatePresence>
+          {countryData.error && (
+            <>
+              <div>{countryData.error.status}</div>
+              <div>{countryData.error.message}</div>
+            </>
+          )}
+          {countryData.data &&
+            !countryData.isLoading &&
+            !countryData.error &&
+            countryData.data.map((country) => {
+              const { flags, name, population, region, capital } = country
+              return (
+                <motion.div
+                  key={name.common}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 1 }}
+                >
+                  <CountryCard
+                    flags={flags}
+                    name={name.common}
+                    population={population}
+                    region={region}
+                    capital={capital}
+                    key={name.common}
+                  />
+                </motion.div>
+              )
+            })}
+        </AnimatePresence>
       </div>
     </main>
   )
