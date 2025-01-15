@@ -1,0 +1,8 @@
+# don't add design files
+design/
+
+# ignore DS_Store
+.DS_Store
+
+# ignore node_modules
+node_modules/
