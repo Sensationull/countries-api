@@ -94,7 +94,7 @@ function CountryPage() {
         transition={{ duration: 0.5 }}
         exit={{ opacity: 0 }}
       >
-        <Link to="/" className="link">
+        <Link to="/countries-api" className="link">
           <button className="back-button">
             <BackArrow />
             Back

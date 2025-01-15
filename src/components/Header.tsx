@@ -8,7 +8,7 @@ function Header() {
   const { darkMode, toggleDarkMode } = useContext(ThemeContext)
   return (
     <nav className="header">
-      <Link to="/" className="link">
+      <Link to="/countries-api" className="link">
         Where in the world?
       </Link>
       <button className="dark-mode-container" onClick={toggleDarkMode}>
