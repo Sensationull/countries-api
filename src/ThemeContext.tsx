@@ -14,10 +14,21 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [darkMode, setDarkMode] = useState(false)
 
   useEffect(() => {
+    const currentTheme = localStorage.getItem('theme')
+      ? localStorage.getItem('theme')
+      : null
+    if (currentTheme === 'dark') {
+      setDarkMode(true)
+    }
+  }, [])
+
+  useEffect(() => {
     if (darkMode) {
       document.body.setAttribute('data-theme', 'dark')
+      localStorage.setItem('theme', 'dark')
     } else {
       document.body.removeAttribute('data-theme')
+      localStorage.setItem('theme', 'light')
     }
   }, [darkMode])
 
