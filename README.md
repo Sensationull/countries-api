@@ -35,8 +35,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [TBD](https://your-solution-url.com)
-- Live Site URL: [TBD](https://your-live-site-url.com)
+- [Github](https://github.com/Sensationull/countries-api)
+- [Live Site URL](https://sensationull.github.io/countries-api/)
 
 ## My process
 
@@ -53,6 +53,9 @@ I went back DRYed up some function defs, moved some code around to avoid prop dr
 I came back to refactor the code so that client-side routing could be implemented with React router. 
 
 I was originally unable to figure out how to pull the border country names for a specfic country from the API. As far as I can tell, you can't right now. So to overcome that issue,  I'm doing a comparison of the country alphaCode3 (ie. VEN = Venezuela) given by the API to represent the border countries and the data.json file where all the country objects exist. When a match is found, I place the resulting name into the button. I wrapped the button in a Link component to enable navigation to that country's page. 
+
+Lastly before deploying, I figured out how to do a simple implementation of a page transition via Framer motion. As it currently stands, it's a fade-out/fade-in of the old and new components, but I'd like to play around with it a bit more.
+
 ### Built with
 
 - Semantic HTML5 markup
@@ -62,6 +65,7 @@ I was originally unable to figure out how to pull the border country names for a
 - [React](https://reactjs.org/) - JS library
 - Typescript
 - [React Router](https://reactrouter.com/home) 
+- [Framer motion](https://motion.dev/)
 
 ###  What I learned
 
@@ -77,7 +81,7 @@ I was originally unable to figure out how to pull the border country names for a
 
 1. Pagination would be nice for the homepage.
 
-2. I'd really like to have the cards fade in when loading rather than pop in and page transitions when the user selects a specific country.
+2. I'd really like to have the cards fade in when loading rather than pop in and page transitions when the user selects a specific country. (Done! YAY). Maybe I'll play around with how you transition between the pages in a more interesting way later...
 
 3. I kinda hate the way data accessing looks in this iteration of this project looks. ie:
 
