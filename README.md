@@ -14,6 +14,7 @@ This is a solution to the [REST Countries API with color theme switcher challeng
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
+- [How to run](How-to-run)
 
 ## Overview
 
@@ -127,6 +128,8 @@ showSpecificCountry={showSpecificCountry}
 
 I'd rather have a consistent way to extract the data so that I only pull off the name of the relevant field and not the object associated with it.
 
+4. I could rethink how state management will work for navigating back to the homepage. Currently, if you've filtered by region and you want to select another country from that region, you'll have to reselect the region or re-enter the search term. Which is toil for the user and not ideal. 
+
 ###  Useful resources
 
 - [You might not need an Effect](https://react.dev/learn/you-might-not-need-an-effect) - This helped me understand a bit more about useEffect.
@@ -138,3 +141,11 @@ I'd rather have a consistent way to extract the data so that I only pull off the
 - Frontend Mentor - [@Sensationull](https://www.frontendmentor.io/profile/Sensationull)
 
 - Github - [@Sensationull](https://github.com/Sensationull)
+
+## How-to-run
+
+1. Clone this repository locally
+2. npm install to intall packages
+3. npm run dev at the top level of the directory
+4. Navigate to localhost:5173 or localhost:5173/countries-api
+  *Vite may redirect you automatically, but it might not.
