@@ -12816,7 +12816,7 @@
     "independent": true
   },
   {
-    "name": "Saint Martin (French part)",
+    "name": "Saint Martin",
     "topLevelDomain": [".mf", ".fr", ".gp"],
     "alpha2Code": "MF",
     "alpha3Code": "MAF",
@@ -13624,7 +13624,7 @@
     "independent": true
   },
   {
-    "name": "Sint Maarten (Dutch part)",
+    "name": "Sint Maarten",
     "topLevelDomain": [".sx"],
     "alpha2Code": "SX",
     "alpha3Code": "SXM",
