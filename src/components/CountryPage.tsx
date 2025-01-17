@@ -47,7 +47,7 @@ function CountryPage() {
   const fetchCountryInfo = async (countryName: string) => {
     setSingleCountryInfo({ data: [], isLoading: true, error: null })
     const response = await fetch(
-      `https://restcountries.com/v3.1/name/${countryName}?fields=name,flags,capital,region,languages,population,subregion,tld,currencies,borders`
+      `https://restcountries.com/v3.1/name/${countryName}?fullText=true&fields=name,flags,capital,region,languages,population,subregion,tld,currencies,borders`
     )
     if (!response.ok) {
       const error = await response.text()
@@ -192,7 +192,7 @@ function CountryPage() {
                       (border) => (
                         <Link
                           key={border}
-                          to={`/country/${getBorderCountryName(border)}`}
+                          to={`/countries-api/country/${getBorderCountryName(border)}`}
                         >
                           <button className="border-country-page-button">
                             {getBorderCountryName(border)}
