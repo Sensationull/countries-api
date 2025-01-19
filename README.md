@@ -80,13 +80,15 @@ Lastly before deploying, I figured out how to do a simple implementation of a pa
 
 ###  Continued development
 
-0. The error and loading states for the project could use more love. Ideally a skeleton loader and some well designed "Error here" states. I'm thinking something like a small waving flag animation next to the item either initiating the loading or in place of it...
+1. I'd like to add some query/search params so that when you select a country and then navigate back to the page, your previous search terms/region selections are saved. This might require a more thorough deep dive into state management with URLSearchParams or useSearchParams. 
 
-1. Pagination would be nice for the homepage.
+2. The error and loading states for the project could use more love. Ideally a skeleton loader and some well designed "Error here" states. I'm thinking something like a small waving flag animation next to the item either initiating the loading or in place of it...
 
-2. I'd really like to have the cards fade in when loading rather than pop in and page transitions when the user selects a specific country. (Done! YAY). Maybe I'll play around with how you transition between the pages in a more interesting way later...
+3. Pagination would be nice for the homepage.
 
-3. I kinda hate the way data accessing looks in this iteration of this project looks. ie:
+4. I'd really like to have the cards fade in when loading rather than pop in and page transitions when the user selects a specific country. (Done! YAY). Maybe I'll play around with how you transition between the pages in a more interesting way later...
+
+5. I kinda hate the way data accessing looks in this iteration of this project looks. ie:
 
 ```tsx
 
@@ -142,7 +144,7 @@ I'd rather have a consistent way to extract the data so that I only pull off the
 
 - Github - [@Sensationull](https://github.com/Sensationull)
 
-## How-to-run
+## How to run
 
 1. Clone this repository locally
 2. npm install to intall packages
