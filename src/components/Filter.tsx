@@ -3,10 +3,10 @@ import './Filter.css'
 import { DownArrow } from './DownArrow'
 
 type FilterProps = {
-  setSelectedRegion: React.Dispatch<React.SetStateAction<string>>
+  onSelectRegion: (region: string) => void
 }
 
-function Filter({ setSelectedRegion }: FilterProps) {
+function Filter({ onSelectRegion }: FilterProps) {
   const [menuIsOpen, setMenuIsOpen] = useState({ dropdown: false })
   const [buttonName, setButtonName] = useState('Filter By Region')
   const container = useRef<HTMLDivElement | null>(null)
@@ -29,7 +29,7 @@ function Filter({ setSelectedRegion }: FilterProps) {
 
   const handleFilter = (event: BaseSyntheticEvent) => {
     if (event.target.textContent) {
-      setSelectedRegion(event.target.textContent)
+      onSelectRegion(event.target.textContent)
       setButtonName(event.target.textContent)
     }
     setMenuIsOpen({ dropdown: !menuIsOpen.dropdown })
