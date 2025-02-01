@@ -1,10 +1,7 @@
 import { BaseSyntheticEvent, useEffect, useRef, useState } from 'react'
 import './Filter.css'
 import { DownArrow } from './DownArrow'
-
-type FilterProps = {
-  onSelectRegion: (region: string) => void
-}
+import { FilterProps } from '../helpers/types'
 
 function Filter({ onSelectRegion }: FilterProps) {
   const [menuIsOpen, setMenuIsOpen] = useState({ dropdown: false })

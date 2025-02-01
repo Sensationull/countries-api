@@ -4,34 +4,7 @@ import { BackArrow } from './BackArrow'
 import { Link, useParams } from 'react-router'
 import { getBorderCountryName } from '../helpers/borderCountries'
 import { AnimatePresence, motion } from 'motion/react'
-type CountryPageInfo = {
-  flags: {
-    alt: string
-    png: string
-    svg: string
-  }
-  name: {
-    common: string
-    nativeName: {
-      [key: string]: { official: string; common: string }
-    }
-    official: string
-  }
-  population: number
-  region: string
-  capital: string
-  subregion: string
-  tld: string[]
-  languages: { [key: string]: string }
-  currencies: { [key: string]: { name: string; symbol: string } }
-  borders: string[]
-}
-
-type SingleCountryData = {
-  data: CountryPageInfo[] | []
-  isLoading: boolean
-  error: { status: number; message: string } | null
-}
+import { SingleCountryData } from '../helpers/types'
 
 function CountryPage() {
   const { name } = useParams()

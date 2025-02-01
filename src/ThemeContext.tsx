@@ -1,14 +1,11 @@
 import { createContext, useEffect, useState } from 'react'
+import { ThemeProviderProps } from './helpers/types'
 
 export const ThemeContext = createContext({
   darkMode: false,
   toggleDarkMode: () => {},
   /* Needed default values? */
 })
-
-type ThemeProviderProps = {
-  children: JSX.Element | JSX.Element[]
-}
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [darkMode, setDarkMode] = useState(false)

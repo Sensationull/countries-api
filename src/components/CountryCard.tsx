@@ -1,13 +1,6 @@
 import { Link } from 'react-router'
 import './CountryCard.css'
-
-type CountryCardProps = {
-  flags: { alt: string; png: string; svg: string }
-  name: string
-  population: string
-  region: string
-  capital: string
-}
+import { CountryCardProps } from '../helpers/types'
 
 function CountryCard({
   flags,
