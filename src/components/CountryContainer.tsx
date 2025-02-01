@@ -1,107 +1,17 @@
 import { AnimatePresence, motion } from 'motion/react'
-import { ChangeEvent, useEffect, useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import CountryCard from './CountryCard'
 import './CountryContainer.css'
 import Search from './Search'
 import Filter from './Filter'
 import { useDebouncedValue } from '../hooks/useDebouncedValue'
-import {
-  createFilterCountriesByRegionEndpoint,
-  createSearchForAllCountriesEndpoint,
-  createSearchForSomeCountriesEndpoint,
-} from '../helpers/apiConstructors'
-
-type CountryInfo = {
-  flags: {
-    alt: string
-    png: string
-    svg: string
-  }
-  name: {
-    common: string
-    nativeName: {
-      eng: string
-      common: string
-    }
-    official: string
-  }
-  population: string
-  region: string
-  capital: string
-}
-
-type CountryData = {
-  data: CountryInfo[] | []
-  isLoading: boolean
-  error: { status: number; message: string } | null
-}
+import { useCountries } from '../hooks/useCountries'
 
 function CountryContainer() {
   // ~ State management // hooks ~
   const [value, setValue] = useState('')
   const [debouncedValue] = useDebouncedValue(value)
-  const [countryData, setCountryData] = useState<CountryData>({
-    data: [],
-    isLoading: false,
-    error: null,
-  })
-  const [selectedRegion, setSelectedRegion] = useState('')
-
-  // ~ Lifecycle methods ~
-  useEffect(() => {
-    fetchCountries(debouncedValue)
-  }, [debouncedValue])
-
-  useEffect(() => {
-    if (selectedRegion) {
-      fetchCountriesByRegion(selectedRegion)
-    }
-  }, [selectedRegion])
-
-  // ~ API requests ~
-
-  const fetchCountries = async (searchTerm: string) => {
-    setCountryData({
-      data: [...countryData.data],
-      isLoading: true,
-      error: null,
-    })
-
-    const searchEndpoint =
-      searchTerm === ''
-        ? createSearchForAllCountriesEndpoint()
-        : createSearchForSomeCountriesEndpoint(searchTerm)
-
-    const response = await fetch(searchEndpoint)
-    await setAndThrowErrorIfNoResponse(response)
-    const data = await response.json()
-    setCountryData({ data: [...data], isLoading: false, error: null })
-  }
-
-  const fetchCountriesByRegion = async (region: string) => {
-    setCountryData({
-      data: [...countryData.data],
-      isLoading: true,
-      error: null,
-    })
-    const response = await fetch(createFilterCountriesByRegionEndpoint(region))
-    await setAndThrowErrorIfNoResponse(response)
-    const data = await response.json()
-    setCountryData({ data: [...data], isLoading: false, error: null })
-  }
-
-  const setAndThrowErrorIfNoResponse = async (response: Response) => {
-    if (!response.ok) {
-      const error = await response.text()
-      const parsedError = JSON.parse(error)
-      setCountryData({
-        data: [...countryData.data],
-        isLoading: false,
-        error: { status: parsedError.status, message: parsedError.message },
-      })
-      throw new Error(error)
-    }
-  }
+  const { countryData, handleSelectedRegion } = useCountries(debouncedValue)
 
   // ~ event handlers ~
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
@@ -119,7 +29,7 @@ function CountryContainer() {
             onChange={handleSearch}
           />
         </div>
-        <Filter setSelectedRegion={setSelectedRegion} />
+        <Filter onSelectRegion={handleSelectedRegion} />
       </div>
 
       <div className="country-card-container">
