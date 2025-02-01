@@ -4,6 +4,12 @@ import CountryCard from './CountryCard'
 import './CountryContainer.css'
 import Search from './Search'
 import Filter from './Filter'
+import { useDebouncedValue } from '../hooks/useDebouncedValue'
+import {
+  createFilterCountriesByRegionEndpoint,
+  createSearchForAllCountriesEndpoint,
+  createSearchForSomeCountriesEndpoint,
+} from '../helpers/apiConstructors'
 
 type CountryInfo = {
   flags: {
@@ -31,9 +37,9 @@ type CountryData = {
 }
 
 function CountryContainer() {
-  // ~ State management ~
+  // ~ State management // hooks ~
   const [value, setValue] = useState('')
-  const [debouncedValue, setDebouncedValue] = useState('')
+  const [debouncedValue] = useDebouncedValue(value)
   const [countryData, setCountryData] = useState<CountryData>({
     data: [],
     isLoading: false,
@@ -52,16 +58,6 @@ function CountryContainer() {
     }
   }, [selectedRegion])
 
-  useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedValue(value)
-    }, 1000)
-
-    return () => {
-      clearTimeout(handler)
-    }
-  }, [value])
-
   // ~ API requests ~
 
   const fetchCountries = async (searchTerm: string) => {
@@ -71,25 +67,13 @@ function CountryContainer() {
       error: null,
     })
 
-    const searchForAllCountries =
-      'https://restcountries.com/v3.1/all?fields=name,flags,capital,region,population'
-    let searchEndpoint = searchForAllCountries
-    const searchForSomeCountries = `https://restcountries.com/v3.1/name/${searchTerm}?fields=name,flags,capital,region,population`
-    if (searchTerm !== '') {
-      searchEndpoint = searchForSomeCountries
-    }
+    const searchEndpoint =
+      searchTerm === ''
+        ? createSearchForAllCountriesEndpoint()
+        : createSearchForSomeCountriesEndpoint(searchTerm)
 
     const response = await fetch(searchEndpoint)
-    if (!response.ok) {
-      const error = await response.text()
-      const parsedError = JSON.parse(error)
-      setCountryData({
-        data: [...countryData.data],
-        isLoading: false,
-        error: { status: parsedError.status, message: parsedError.message },
-      })
-      throw new Error(error)
-    }
+    await setAndThrowErrorIfNoResponse(response)
     const data = await response.json()
     setCountryData({ data: [...data], isLoading: false, error: null })
   }
@@ -100,9 +84,13 @@ function CountryContainer() {
       isLoading: true,
       error: null,
     })
-    const response = await fetch(
-      `https://restcountries.com/v3.1/region/${region}`
-    )
+    const response = await fetch(createFilterCountriesByRegionEndpoint(region))
+    await setAndThrowErrorIfNoResponse(response)
+    const data = await response.json()
+    setCountryData({ data: [...data], isLoading: false, error: null })
+  }
+
+  const setAndThrowErrorIfNoResponse = async (response: Response) => {
     if (!response.ok) {
       const error = await response.text()
       const parsedError = JSON.parse(error)
@@ -113,8 +101,6 @@ function CountryContainer() {
       })
       throw new Error(error)
     }
-    const data = await response.json()
-    setCountryData({ data: [...data], isLoading: false, error: null })
   }
 
   // ~ event handlers ~
