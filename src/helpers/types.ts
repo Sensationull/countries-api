@@ -27,7 +27,7 @@ export type FilterProps = {
   onSelectRegion: (region: string) => void
 }
 
-export type CountryPageInfo = Omit<CountryInfo, 'name'> & {
+type CountryPageInfo = Omit<CountryInfo, 'name'> & {
   name: {
     common: string
     nativeName: {
