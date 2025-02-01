@@ -5,6 +5,7 @@ import { Link, useParams } from 'react-router'
 import { getBorderCountryName } from '../helpers/borderCountries'
 import { AnimatePresence, motion } from 'motion/react'
 import { SingleCountryData } from '../helpers/types'
+import { createSingleCountryFetchEndpoint } from '../helpers/apiConstructors'
 
 function CountryPage() {
   const { name } = useParams()
@@ -19,9 +20,7 @@ function CountryPage() {
 
   const fetchCountryInfo = async (countryName: string) => {
     setSingleCountryInfo({ data: [], isLoading: true, error: null })
-    const response = await fetch(
-      `https://restcountries.com/v3.1/name/${countryName}?fullText=true&fields=name,flags,capital,region,languages,population,subregion,tld,currencies,borders`
-    )
+    const response = await fetch(createSingleCountryFetchEndpoint(countryName))
     if (!response.ok) {
       const error = await response.text()
       const parsedError = JSON.parse(error)
